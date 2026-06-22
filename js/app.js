@@ -369,15 +369,26 @@
         var tel = form.elements['telefono'].value.trim();
         var tipo = form.elements['tipo'].value;
         var msg = form.elements['mensaje'].value.trim();
-        var subject = 'Cotización · ' + tipo + ' · ' + nombre;
-        var body = 'Nombre: ' + nombre + '\nCorreo: ' + email + '\nTeléfono: ' + tel +
+        // Lead → FourG CRM (widget webchat de Gestiones). no-cors + text/plain =
+        // request "simple" (sin preflight CORS); el endpoint parsea el JSON igual con req.json().
+        // Fire-and-forget: la respuesta es opaca, pero el lead se crea en el inbox.
+        var lead = '🔔 Nuevo lead — formulario web\n' +
+                   'Nombre: ' + nombre + '\nEmail: ' + email + '\nTeléfono: ' + (tel || '—') +
                    '\nTipo de proyecto: ' + tipo + '\n\nMensaje:\n' + msg;
-        var mailto = 'mailto:cotizacionesia2025@gmail.com?subject=' + encodeURIComponent(subject) +
-                     '&body=' + encodeURIComponent(body);
+        var vid = localStorage.getItem('ge-form-visitor');
+        if (!vid) { vid = 'form_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 8); localStorage.setItem('ge-form-visitor', vid); }
         var sent = doc.getElementById('cta-sent');
-        form.style.display = 'none';
-        if (sent) { sent.hidden = false; }
-        window.location.href = mailto;
+        var showSent = function () { form.style.display = 'none'; if (sent) sent.hidden = false; };
+        fetch('https://crm.fourgsolutions.com/api/widget/wc_gestiones_main', {
+          method: 'POST', mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+          body: JSON.stringify({ visitor_id: vid, text: lead, context: { current_url: location.href, source: 'contact_form' } })
+        }).then(showSent).catch(function () {
+          // CRM inalcanzable → no perder el lead: caer a mailto.
+          var subject = 'Cotización · ' + tipo + ' · ' + nombre;
+          window.location.href = 'mailto:cotizacionesia2025@gmail.com?subject=' +
+            encodeURIComponent(subject) + '&body=' + encodeURIComponent(lead);
+        });
       });
       // limpiar estado inválido al escribir
       form.addEventListener('input', function (e) {
