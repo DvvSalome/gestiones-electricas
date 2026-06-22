@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /tweaks-panel.jsx
+Disallow: /js/tweaks.jsx
+
+Sitemap: https://gestioneselectricas.com/sitemap.xml

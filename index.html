@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es" class="js">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Gestiones Eléctricas | Ingeniería eléctrica con IA · RETIE | Colombia</title>
+<link rel="icon" href="assets/favicon.png" />
+<meta name="description" content="Ingeniería eléctrica integral potenciada por IA: solar, hidroeléctrica, transmisión y alta tensión. Cumplimiento RETIE y NTC 2050. Barranquilla, Medellín, Bogotá." />
+<meta name="keywords" content="energía solar, hidroeléctrica, alta tensión, transmisión eléctrica, subestaciones, ingeniería eléctrica, automatización, tableros, Colombia" />
+<meta name="theme-color" content="#0A0A0A" />
+<meta name="author" content="Gestiones Eléctricas" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://gestioneselectricas.com/" />
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Gestiones Eléctricas" />
+<meta property="og:title" content="Gestiones Eléctricas — Ingeniería eléctrica con IA" />
+<meta property="og:description" content="Ingeniería eléctrica integral potenciada por IA: solar, hidroeléctrica, alta tensión y monitoreo en tiempo real. Cumplimiento RETIE y NTC 2050." />
+<meta property="og:image" content="https://gestioneselectricas.com/assets/torres-duotono.png" />
+<meta property="og:image:alt" content="Torres de alta tensión — Gestiones Eléctricas" />
+<meta property="og:image:width" content="871" />
+<meta property="og:image:height" content="680" />
+<meta property="og:locale" content="es_CO" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:url" content="https://gestioneselectricas.com/" />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Gestiones Eléctricas — Ingeniería eléctrica con IA" />
+<meta name="twitter:description" content="Solar, hidroeléctrica, alta tensión y monitoreo en tiempo real. Cumplimiento RETIE y NTC 2050." />
+<meta name="twitter:image" content="https://gestioneselectricas.com/assets/torres-duotono.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ElectricalContractor",
+  "name": "Gestiones Eléctricas",
+  "description": "Ingeniería eléctrica integral: energía solar, hidroeléctrica, transmisión y alta tensión, automatización y mantenimiento.",
+  "url": "https://gestioneselectricas.com/",
+  "email": "cotizacionesia2025@gmail.com",
+  "telephone": "+573018141027",
+  "areaServed": "CO",
+  "sameAs": ["https://instagram.com/gestioneselectricassas"],
+  "knowsAbout": ["Energía solar", "Hidroeléctrica", "Alta tensión", "Subestaciones", "Automatización industrial"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css?v=20260618d" />
+<link id="gfont-Ubuntu" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;600;700&amp;display=swap">
+<link id="gfont-Montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap">
+</head>
+<body>
+
+<!-- escena WebGL de fondo -->
+<canvas id="bg-canvas"></canvas>
+<div id="scene-veil"></div>
+
+<!-- navegación -->
+<header class="nav" id="nav">
+  <a class="nav__logo" href="#hero" aria-label="Gestiones Eléctricas">
+    <img src="assets/logo.svg" alt="Gestiones Eléctricas" />
+  </a>
+  <nav class="nav__links">
+    <a href="#ia" data-i18n="nav.ia">IA</a>
+    <a href="#nosotros" data-i18n="nav.nosotros">Nosotros</a>
+    <a href="#soluciones" data-i18n="nav.soluciones">Soluciones</a>
+    <a href="#servicios" data-i18n="nav.servicios">Servicios</a>
+    <a href="#red" data-i18n="nav.red">La red</a>
+    <a href="#viaje" data-i18n="nav.viaje">Viaje</a>
+    <a href="#proyectos" data-i18n="nav.proyectos">Proyectos</a>
+  </nav>
+  <div class="nav__actions">
+    <button id="sound-toggle" class="snd" aria-label="Sonido" aria-pressed="false">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 9v6h4l5 4V5L8 9H4z"></path>
+        <path class="snd-wave" d="M16 9.2a3.6 3.6 0 0 1 0 5.6"></path>
+        <path class="snd-off" d="M19 5 5 19"></path>
+      </svg>
+    </button>
+    <button id="lang-toggle" data-i18n="lang.toggle" aria-label="Cambiar idioma">EN</button>
+    <a href="#contacto" class="btn btn--lime" data-i18n="nav.cta">Cotizar</a>
+  </div>
+</header>
+
+<main class="page">
+
+  <!-- HERO -->
+  <section class="hero" id="hero" data-veil="0.18" data-intensity="0.12">
+    <div class="container hero__inner">
+      <span class="kicker reveal" data-i18n="hero.kicker">Ingeniería eléctrica · IA · Tecnología</span>
+      <h1 class="reveal d1" data-i18n="hero.title">Movemos la energía que mueve al país</h1>
+      <p class="lead reveal d2" data-i18n="hero.sub">Soluciones eléctricas integrales para empresas y hogares: generación renovable, alta tensión y diseño de ingeniería con estándar de red.</p>
+      <div class="hero__cta reveal d3">
+        <a href="#contacto" class="btn btn--lime btn--lg" data-i18n="hero.cta1">Conversemos tu proyecto</a>
+        <a href="#ia" class="btn btn--ghost btn--lg" data-i18n="hero.cta2">Cómo aplicamos la IA</a>
+      </div>
+    </div>
+    <div class="hero__scroll">
+      <span class="dot"></span>
+      <span data-i18n="hero.scroll">Desliza para recorrer la red</span>
+    </div>
+  </section>
+
+  <!-- IA / TECNOLOGÍA · primer bloque de contenido (prioridad de venta) -->
+  <section id="ia" data-veil="0.42" data-intensity="0.55">
+    <div class="container">
+      <div class="sec-head">
+        <span class="kicker reveal" data-i18n="ia.kicker">Ingeniería inteligente</span>
+        <h2 class="reveal d1" data-i18n="ia.title">Apoyada por inteligencia artificial</h2>
+        <p class="reveal d2" data-i18n="ia.body">Potenciamos cada análisis con inteligencia artificial y software especializado de clase mundial. Combinamos criterio de ingeniería con herramientas que aceleran el manejo de datos, el modelado y la simulación de redes.</p>
+      </div>
+      <div class="ia-grid">
+        <div class="ia-media reveal d1">
+          <img src="assets/ingenieria.jpg" alt="Equipo de ingeniería aplicando IA y software especializado" />
+          <span class="ia-media__tag"><i></i><span data-i18n="ia.tag">Decisiones basadas en datos</span></span>
+        </div>
+        <div class="ia-stack">
+          <article class="techcard reveal">
+            <span class="techcard__logo techcard__logo--claude" aria-hidden="true">
+              <svg viewBox="0 0 32 32"><g stroke="#D97757" stroke-width="2.6" stroke-linecap="round"><line x1="16" y1="16" x2="28" y2="16"/><line x1="16" y1="16" x2="26.4" y2="10"/><line x1="16" y1="16" x2="22" y2="5.6"/><line x1="16" y1="16" x2="16" y2="4"/><line x1="16" y1="16" x2="10" y2="5.6"/><line x1="16" y1="16" x2="5.6" y2="10"/><line x1="16" y1="16" x2="4" y2="16"/><line x1="16" y1="16" x2="5.6" y2="22"/><line x1="16" y1="16" x2="10" y2="26.4"/><line x1="16" y1="16" x2="16" y2="28"/><line x1="16" y1="16" x2="22" y2="26.4"/><line x1="16" y1="16" x2="26.4" y2="22"/></g></svg>
+            </span>
+            <div class="techcard__txt"><b data-i18n="ia.claude.t">Claude</b><p data-i18n="ia.claude.d">Análisis inteligente de datos y reportes automáticos.</p></div>
+          </article>
+          <article class="techcard reveal d1">
+            <span class="techcard__logo techcard__logo--gemini" aria-hidden="true">
+              <svg viewBox="0 0 32 32"><defs><linearGradient id="gemg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4285F4"/><stop offset=".5" stop-color="#9168C0"/><stop offset="1" stop-color="#D96570"/></linearGradient></defs><path d="M16 2 C17.6 10.4 21.6 14.4 30 16 C21.6 17.6 17.6 21.6 16 30 C14.4 21.6 10.4 17.6 2 16 C10.4 14.4 14.4 10.4 16 2 Z" fill="url(#gemg)"/></svg>
+            </span>
+            <div class="techcard__txt"><b data-i18n="ia.gemini.t">Gemini</b><p data-i18n="ia.gemini.d">Modelado predictivo y detección de anomalías.</p></div>
+          </article>
+          <article class="techcard reveal d2">
+            <span class="techcard__logo techcard__logo--etap" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" stroke="#E11D2A" stroke-width="2"><line x1="8" y1="11" x2="24" y2="8"/><line x1="24" y1="8" x2="20" y2="24"/><line x1="8" y1="11" x2="20" y2="24"/><circle cx="8" cy="11" r="3.4" fill="#E11D2A" stroke="none"/><circle cx="24" cy="8" r="3.4" fill="#E11D2A" stroke="none"/><circle cx="20" cy="24" r="3.4" fill="#E11D2A" stroke="none"/></svg>
+            </span>
+            <div class="techcard__txt"><b data-i18n="ia.etap.t">ETAP</b><p data-i18n="ia.etap.d">Simulación avanzada de sistemas eléctricos y estudios de red.</p></div>
+          </article>
+          <article class="techcard reveal d3">
+            <span class="techcard__logo techcard__logo--cloud" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none"><defs><linearGradient id="gclia" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4285F4"/><stop offset=".38" stop-color="#EA4335"/><stop offset=".7" stop-color="#FBBC05"/><stop offset="1" stop-color="#34A853"/></linearGradient></defs><path d="M10.2 23.5a5.6 5.6 0 0 1-.6-11.1A7 7 0 0 1 22.6 11.7a4.9 4.9 0 0 1 .5 11.8Z" stroke="url(#gclia)" stroke-width="2.4" stroke-linejoin="round"/></svg>
+            </span>
+            <div class="techcard__txt"><b data-i18n="ia.cloud.t">Cloud</b><p data-i18n="ia.cloud.d">Monitoreo y datos en la nube en tiempo real.</p></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IA QUE OPERA LA RED (video Flow, scroll-scrub) -->
+  <section class="drive" id="ia-viaje" data-veil="0.2" data-intensity="0.5">
+    <video id="ia-video" class="drive__video" src="assets/ai-icons.mp4" muted playsinline preload="auto" aria-hidden="true"></video>
+    <div class="drive__overlay">
+      <div class="drive__head">
+        <span class="kicker">Inteligencia aplicada</span>
+        <h2>IA que opera y optimiza la red</h2>
+        <p class="drive__lead">Cuatro capas de inteligencia trabajando juntas sobre cada kilómetro de red: capturan, predicen, deciden y actúan.</p>
+      </div>
+      <div class="drive__foot">
+        <div class="drive__stages">
+          <div class="drive__stage is-active" data-stage="0">
+            <span class="drive__brandrow"><span class="ia-mark ia-mark--cloud"><svg viewBox="0 0 32 32" fill="none"><defs><linearGradient id="gcliv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4285F4"/><stop offset=".38" stop-color="#EA4335"/><stop offset=".7" stop-color="#FBBC05"/><stop offset="1" stop-color="#34A853"/></linearGradient></defs><path d="M10.2 23.5a5.6 5.6 0 0 1-.6-11.1A7 7 0 0 1 22.6 11.7a4.9 4.9 0 0 1 .5 11.8Z" stroke="url(#gcliv)" stroke-width="2.4" stroke-linejoin="round"/></svg></span><span class="si">Paso 01 · Google Cloud</span></span>
+            <h3>Todo nace en los datos</h3>
+            <p>Cada medidor, subestación y línea envía su estado a la nube en tiempo real. La red entera, visible en un solo lugar.</p>
+          </div>
+          <div class="drive__stage" data-stage="1">
+            <span class="drive__brandrow"><span class="ia-mark ia-mark--gemini"><svg viewBox="0 0 32 32"><defs><linearGradient id="gemiv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4285F4"/><stop offset=".5" stop-color="#9168C0"/><stop offset="1" stop-color="#D96570"/></linearGradient></defs><path d="M16 2 C17.6 10.4 21.6 14.4 30 16 C21.6 17.6 17.6 21.6 16 30 C14.4 21.6 10.4 17.6 2 16 C10.4 14.4 14.4 10.4 16 2 Z" fill="url(#gemiv)"/></svg></span><span class="si">Paso 02 · Gemini</span></span>
+            <h3>El modelo anticipa</h3>
+            <p>Gemini modela la demanda y detecta anomalías antes de que ocurran, para adelantarse a las fallas.</p>
+          </div>
+          <div class="drive__stage" data-stage="2">
+            <span class="drive__brandrow"><span class="ia-mark ia-mark--claude"><svg viewBox="0 0 32 32"><g stroke="#D97757" stroke-width="2.6" stroke-linecap="round"><line x1="16" y1="16" x2="28" y2="16"/><line x1="16" y1="16" x2="26.4" y2="10"/><line x1="16" y1="16" x2="22" y2="5.6"/><line x1="16" y1="16" x2="16" y2="4"/><line x1="16" y1="16" x2="10" y2="5.6"/><line x1="16" y1="16" x2="5.6" y2="10"/><line x1="16" y1="16" x2="4" y2="16"/><line x1="16" y1="16" x2="5.6" y2="22"/><line x1="16" y1="16" x2="10" y2="26.4"/><line x1="16" y1="16" x2="16" y2="28"/><line x1="16" y1="16" x2="22" y2="26.4"/><line x1="16" y1="16" x2="26.4" y2="22"/></g></svg></span><span class="si">Paso 03 · Claude</span></span>
+            <h3>Los datos se vuelven decisiones</h3>
+            <p>Claude interpreta lo que pasa en la red y entrega análisis y reportes claros, listos para accionar.</p>
+          </div>
+          <div class="drive__stage" data-stage="3">
+            <span class="drive__brandrow"><span class="ia-mark ia-mark--n8n"><svg viewBox="0 0 32 32" fill="none" stroke="#EA4B71" stroke-width="2.2" stroke-linecap="round"><line x1="9" y1="16" x2="16" y2="9.5"/><line x1="9" y1="16" x2="16" y2="22.5"/><line x1="16" y1="9.5" x2="23" y2="9.5"/><line x1="16" y1="22.5" x2="23" y2="22.5"/><circle cx="8" cy="16" r="3.4" fill="#EA4B71" stroke="none"/><circle cx="16.5" cy="9.5" r="2.5" fill="#EA4B71" stroke="none"/><circle cx="16.5" cy="22.5" r="2.5" fill="#EA4B71" stroke="none"/><circle cx="24" cy="9.5" r="2.5" fill="#EA4B71" stroke="none"/><circle cx="24" cy="22.5" r="2.5" fill="#EA4B71" stroke="none"/></svg></span><span class="si">Paso 04 · n8n</span></span>
+            <h3>La operación responde sola</h3>
+            <p>n8n orquesta los procesos y ejecuta respuestas automáticas, cerrando el ciclo sobre la red.</p>
+          </div>
+        </div>
+        <div class="drive__rail">
+          <span class="drive__dot is-active"></span><span class="drive__dot"></span><span class="drive__dot"></span><span class="drive__dot"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section id="nosotros" data-veil="0.62" data-intensity="0.24">
+    <div class="container about">
+      <div class="about__text">
+        <span class="kicker reveal" data-i18n="nosotros.kicker">Quiénes somos</span>
+        <h2 class="reveal d1" data-i18n="nosotros.title">Una sola firma para todo el ciclo eléctrico</h2>
+        <p class="reveal d2" data-i18n="nosotros.body">Desde el estudio y el diseño hasta la puesta en marcha y el mantenimiento, integramos cada eslabón de la cadena energética. Conectamos generación, transmisión y consumo con criterio técnico, seguridad y trazabilidad.</p>
+        <ul class="checklist reveal d2">
+          <li><span class="tick"></span><span data-i18n="nosotros.point1">Equipo de ingeniería propio</span></li>
+          <li><span class="tick"></span><span data-i18n="nosotros.point2">Cumplimiento normativo y seguridad</span></li>
+          <li><span class="tick"></span><span data-i18n="nosotros.point3">Cobertura B2B y residencial</span></li>
+        </ul>
+      </div>
+      <div class="about__media reveal d1">
+        <div class="frame" style="background:radial-gradient(70% 60% at 50% 30%,rgba(199,229,47,.18),#0d0f0d 70%)">
+          <img src="assets/ingenieros.png" alt="Equipo de ingeniería de Gestiones Eléctricas" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUCIONES -->
+  <section id="soluciones" data-veil="0.5" data-intensity="0.34">
+    <div class="container">
+      <div class="sec-head">
+        <span class="kicker reveal" data-i18n="soluciones.kicker">Soluciones</span>
+        <h2 class="reveal d1" data-i18n="soluciones.title">Tres frentes, una misma red</h2>
+        <p class="reveal d2" data-i18n="soluciones.sub">Donde se genera, por donde viaja y cómo llega.</p>
+      </div>
+      <div class="pillars">
+        <article class="pillar reveal">
+          <div class="pillar__bg" style="background-image:url('assets/solar.jpg')"></div>
+          <span class="num">01</span>
+          <h3 data-i18n="sol.solar.t">Energía solar</h3>
+          <p data-i18n="sol.solar.d">Diseño, instalación y monitoreo de sistemas fotovoltaicos para autoconsumo industrial y residencial.</p>
+        </article>
+        <article class="pillar reveal d1">
+          <div class="pillar__bg" style="background-image:url('assets/hidro.jpg')"></div>
+          <span class="num">02</span>
+          <h3 data-i18n="sol.hidro.t">Hidroeléctrica</h3>
+          <p data-i18n="sol.hidro.d">Ingeniería y operación de generación hidráulica: del recurso hídrico al megavatio entregado.</p>
+        </article>
+        <article class="pillar reveal d2">
+          <div class="pillar__bg" style="background-image:url('assets/subestacion.jpg')"></div>
+          <span class="num">03</span>
+          <h3 data-i18n="sol.red.t">Transmisión y alta tensión</h3>
+          <p data-i18n="sol.red.d">Líneas, subestaciones y patios de maniobra. Llevamos la energía con confiabilidad de red.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" data-veil="0.6" data-intensity="0.36">
+    <div class="container">
+      <div class="sec-head">
+        <span class="kicker reveal" data-i18n="servicios.kicker">Capacidades</span>
+        <h2 class="reveal d1" data-i18n="servicios.title">Servicios de ingeniería eléctrica</h2>
+        <p class="reveal d2" data-i18n="servicios.sub">Ingeniería que cumple norma y entrega resultados: confiabilidad, seguridad y continuidad operativa.</p>
+      </div>
+      <div class="services">
+        <article class="service reveal">
+          <div class="service__img"><img src="assets/diseno.jpg" alt="Diseño e ingeniería" /><span class="service__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-4 3 2 4-6"/></svg></span></div>
+          <div class="service__body"><h3 data-i18n="serv.diseno.t">Diseño e ingeniería</h3><p data-i18n="serv.diseno.d">Cálculo, planos y memorias técnicas.</p></div>
+        </article>
+        <article class="service reveal d1">
+          <div class="service__img"><img src="assets/instalaciones.jpg" alt="Instalaciones" /><span class="service__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg></span></div>
+          <div class="service__body"><h3 data-i18n="serv.instal.t">Instalaciones</h3><p data-i18n="serv.instal.d">Montaje y conexionado certificado.</p></div>
+        </article>
+        <article class="service reveal d2">
+          <div class="service__img"><img src="assets/automatizacion.jpg" alt="Automatización y tableros" /><span class="service__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span></div>
+          <div class="service__body"><h3 data-i18n="serv.auto.t">Automatización y tableros</h3><p data-i18n="serv.auto.d">Control, protección y maniobra.</p></div>
+        </article>
+        <article class="service reveal d3">
+          <div class="service__img"><img src="assets/mantenimiento.jpg" alt="Mantenimiento y mediciones" /><span class="service__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.3 2.3-2-2 2.3-2.3z"/></svg></span></div>
+          <div class="service__body"><h3 data-i18n="serv.mant.t">Mantenimiento y mediciones</h3><p data-i18n="serv.mant.d">Diagnóstico, pruebas y continuidad.</p></div>
+        </article>
+      </div>
+      <div class="sectors reveal">
+        <span class="sectors__label" data-i18n="sectors.label">Sectores que atendemos</span>
+        <div class="sectors__list">
+          <span data-i18n="sectors.1">Industrial</span>
+          <span data-i18n="sectors.2">Comercial</span>
+          <span data-i18n="sectors.3">Residencial</span>
+          <span data-i18n="sectors.4">Infraestructura</span>
+          <span data-i18n="sectors.5">Agroindustria</span>
+          <span data-i18n="sectors.6">Sector público</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LA RED (corredor 3D visible) -->
+  <section class="red" id="red" data-veil="0.12" data-intensity="0.92">
+    <div class="container red__inner">
+      <span class="kicker reveal" data-i18n="red.kicker">La red en movimiento</span>
+      <h2 class="reveal d1" data-i18n="red.title">Cada kilómetro, bajo control</h2>
+      <p class="reveal d2" data-i18n="red.body">Recorre con nosotros la columna vertebral del sistema: torres, conductores y subestaciones que mantienen la energía fluyendo, monitoreados en tiempo real.</p>
+      <div class="tags reveal d2">
+        <span class="tag" data-i18n="red.tag1">Líneas de alta tensión</span>
+        <span class="tag" data-i18n="red.tag2">Subestaciones</span>
+        <span class="tag" data-i18n="red.tag3">Monitoreo 24/7</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIAJE DE LA ENERGÍA (escena 3D scroll-drive) -->
+  <section class="drive" id="viaje" data-veil="0" data-intensity="0.5">
+    <video id="drive-video" class="drive__video" src="assets/flow.mp4" poster="assets/flow-poster.jpg" muted playsinline preload="auto" aria-hidden="true"></video>
+    <div class="drive__overlay">
+      <div class="drive__head">
+        <span class="kicker" data-i18n="viaje.kicker">Recorrido interactivo</span>
+        <h2 data-i18n="viaje.title">El viaje de la energía</h2>
+      </div>
+      <div class="drive__foot">
+        <div class="drive__stages">
+          <div class="drive__stage is-active" data-stage="0"><span class="si">01</span><h3 data-i18n="viaje.s1.t">Generación solar</h3><p data-i18n="viaje.s1.d">El sol se convierte en corriente a través de los paneles fotovoltaicos.</p></div>
+          <div class="drive__stage" data-stage="1"><span class="si">02</span><h3 data-i18n="viaje.s2.t">Hidrogeneración</h3><p data-i18n="viaje.s2.d">El agua impulsa la turbina y multiplica la potencia disponible.</p></div>
+          <div class="drive__stage" data-stage="2"><span class="si">03</span><h3 data-i18n="viaje.s3.t">Transmisión</h3><p data-i18n="viaje.s3.d">La energía viaja en alta tensión a lo largo de kilómetros de línea.</p></div>
+          <div class="drive__stage" data-stage="3"><span class="si">04</span><h3 data-i18n="viaje.s4.t">Subestación</h3><p data-i18n="viaje.s4.d">Se transforma y se regula para distribuirla con seguridad.</p></div>
+          <div class="drive__stage" data-stage="4"><span class="si">05</span><h3 data-i18n="viaje.s5.t">Consumo</h3><p data-i18n="viaje.s5.d">Llega encendida a empresas y hogares.</p></div>
+        </div>
+        <div class="drive__rail">
+          <span class="drive__dot is-active"></span><span class="drive__dot"></span><span class="drive__dot"></span><span class="drive__dot"></span><span class="drive__dot"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS / DASHBOARD -->
+  <section id="proyectos" data-veil="0.66" data-intensity="0.34" style="font-family: Montserrat">
+    <div class="container ops">
+      <div class="ops__text">
+        <span class="kicker reveal" data-i18n="proyectos.kicker">Operación</span>
+        <h2 class="reveal d1" data-i18n="proyectos.title">Datos que sostienen decisiones</h2>
+        <p class="reveal d2" data-i18n="proyectos.body">Tableros de monitoreo que convierten el comportamiento de la red en información accionable: demanda, generación y disponibilidad en una sola vista.</p>
+        <a href="#contacto" class="btn btn--ghost btn--lg reveal d2" style="margin-top:1.8rem" data-i18n="proyectos.cta">Ver caso de monitoreo</a>
+      </div>
+      <div class="ops__media reveal d1">
+        <div class="dash" id="dash">
+          <div class="dash__head">
+            <div class="dash__titlewrap">
+              <h3 class="dash__title" data-i18n="dash.report">Reporte</h3>
+              <span class="dash__period" data-i18n="dash.period">Mayo 2026</span>
+            </div>
+            <span class="dash__live"><i></i><span data-i18n="dash.live">En vivo</span></span>
+          </div>
+          <div class="dash__kpis">
+            <div class="kpi">
+              <span class="kpi__label" data-i18n="dash.k1">Demanda</span>
+              <div class="kpi__row"><b class="kpi__val" data-count="847" data-suffix=" MW">0</b><span class="kpi__delta up">▲ 2.4%</span></div>
+              <svg class="kpi__spark" viewBox="0 0 100 28" preserveAspectRatio="none"><polyline points="0,20 14,18 28,21 42,12 56,15 70,8 84,11 100,5"></polyline></svg>
+            </div>
+            <div class="kpi">
+              <span class="kpi__label" data-i18n="dash.k2">Generación</span>
+              <div class="kpi__row"><b class="kpi__val" data-count="912" data-suffix=" MW">0</b><span class="kpi__delta up">▲ 3.1%</span></div>
+              <svg class="kpi__spark" viewBox="0 0 100 28" preserveAspectRatio="none"><polyline points="0,22 14,16 28,17 42,14 56,9 70,12 84,7 100,6"></polyline></svg>
+            </div>
+            <div class="kpi">
+              <span class="kpi__label" data-i18n="dash.k3">Disponibilidad</span>
+              <div class="kpi__row"><b class="kpi__val" data-count="99.6" data-suffix="%">0</b><span class="kpi__delta flat">● estable</span></div>
+              <svg class="kpi__spark" viewBox="0 0 100 28" preserveAspectRatio="none"><polyline points="0,8 14,7 28,9 42,6 56,8 70,5 84,7 100,6"></polyline></svg>
+            </div>
+          </div>
+          <div class="dash__chart">
+            <div class="dash__grid">
+              <span data-v="100"></span><span data-v="80"></span><span data-v="60"></span><span data-v="40"></span><span data-v="20"></span>
+            </div>
+            <div class="dash__bars">
+              <div class="bar" style="--h:30%;--i:0"><div class="fill"></div><label>Lun 08</label></div>
+              <div class="bar" style="--h:28%;--i:1"><div class="fill"></div><label>Mar 09</label></div>
+              <div class="bar" style="--h:62%;--i:2"><div class="fill"></div><label>Mié 10</label></div>
+              <div class="bar" style="--h:53%;--i:3"><div class="fill"></div><label>Jue 11</label></div>
+              <div class="bar" style="--h:84%;--i:4"><div class="fill"></div><label>Vie 12</label></div>
+              <div class="bar" style="--h:47%;--i:5"><div class="fill"></div><label>Sáb 13</label></div>
+              <div class="bar" style="--h:44%;--i:6"><div class="fill"></div><label>Dom 14</label></div>
+              <div class="bar" style="--h:37%;--i:7"><div class="fill"></div><label>Lun 15</label></div>
+              <div class="bar" style="--h:39%;--i:8"><div class="fill"></div><label>Mar 16</label></div>
+              <div class="bar" style="--h:68%;--i:9"><div class="fill"></div><label>Mié 17</label></div>
+              <div class="bar" style="--h:55%;--i:10"><div class="fill"></div><label>Jue 18</label></div>
+              <div class="bar is-peak" style="--h:73%;--i:11"><div class="fill"></div><label>Vie 19</label></div>
+            </div>
+          </div>
+          <div class="dash__foot" data-i18n="dash.foot">Actualizado hace instantes · datos de muestra</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CIFRAS -->
+  <section id="cifras" data-veil="0.6" data-intensity="0.46">
+    <div class="container">
+      <div class="sec-head" style="text-align:center;margin-left:auto;margin-right:auto">
+        <h2 class="reveal" data-i18n="cifras.title">Respaldados por resultados</h2>
+        <p class="reveal d1 mono" style="color:var(--muted-2)" data-i18n="cifras.sub">Resultados que respaldan cada proyecto que entregamos</p>
+      </div>
+      <div class="stats">
+        <div class="stat reveal">
+          <div class="stat__num"><span class="plus">+</span><span class="stat-count" data-target="100">0</span></div>
+          <div class="stat__label" data-i18n="cifras.1">empresas asesoradas</div>
+        </div>
+        <div class="stat reveal d1">
+          <div class="stat__num"><span class="stat-count" data-target="345">0</span></div>
+          <div class="stat__label" data-i18n="cifras.2">proyectos ejecutados</div>
+        </div>
+        <div class="stat reveal d2">
+          <div class="stat__num"><span class="stat-count" data-target="100">0</span>%</div>
+          <div class="stat__label" data-i18n="cifras.3">cumplimiento RETIE y NTC 2050</div>
+        </div>
+        <div class="stat reveal d3">
+          <div class="stat__num"><span class="stat-count" data-target="3">0</span></div>
+          <div class="stat__label" data-i18n="cifras.4">ciudades: Barranquilla, Medellín, Bogotá</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" data-veil="0.55" data-intensity="0.3">
+    <div class="container">
+      <div class="cta-band reveal" id="cta">
+        <div class="cta-band__bg" aria-hidden="true">
+          <svg class="cta-current" viewBox="0 0 1200 240" preserveAspectRatio="none">
+            <path class="wire" d="M-20,60 C220,10 360,120 600,70 C840,20 980,130 1220,80" />
+            <path class="wire" d="M-20,180 C200,130 420,210 600,160 C800,115 1000,210 1220,150" />
+            <path class="flow" d="M-20,60 C220,10 360,120 600,70 C840,20 980,130 1220,80" />
+            <path class="flow flow--2" d="M-20,180 C200,130 420,210 600,160 C800,115 1000,210 1220,150" />
+          </svg>
+        </div>
+        <span class="cta-node" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+        </span>
+        <span class="kicker" style="justify-content:center" data-i18n="contacto.kicker">Hablemos</span>
+        <h2 data-i18n="contacto.title">Pongamos tu energía en marcha</h2>
+        <p data-i18n="contacto.body">Cuéntanos qué necesitas conectar. Un ingeniero revisará tu requerimiento y te responderá con una propuesta.</p>
+        <form class="cta-form" id="cta-form" novalidate>
+          <div class="cta-form__grid">
+            <label class="field">
+              <span data-i18n="form.name">Nombre</span>
+              <input type="text" name="nombre" required autocomplete="name" />
+            </label>
+            <label class="field">
+              <span data-i18n="form.email">Correo</span>
+              <input type="email" name="email" required autocomplete="email" />
+            </label>
+            <label class="field">
+              <span data-i18n="form.phone">Teléfono / WhatsApp</span>
+              <input type="tel" name="telefono" autocomplete="tel" />
+            </label>
+            <label class="field">
+              <span data-i18n="form.type">Tipo de proyecto</span>
+              <select name="tipo">
+                <option value="Energía solar" data-i18n="form.t.solar">Energía solar</option>
+                <option value="Hidroeléctrica" data-i18n="form.t.hidro">Hidroeléctrica</option>
+                <option value="Transmisión / alta tensión" data-i18n="form.t.red">Transmisión / alta tensión</option>
+                <option value="Automatización y tableros" data-i18n="form.t.auto">Automatización y tableros</option>
+                <option value="Mantenimiento" data-i18n="form.t.mant">Mantenimiento</option>
+                <option value="Otro" data-i18n="form.t.otro">Otro</option>
+              </select>
+            </label>
+            <label class="field field--full">
+              <span data-i18n="form.msg">Cuéntanos sobre tu proyecto</span>
+              <textarea name="mensaje" rows="3" required></textarea>
+            </label>
+          </div>
+          <div class="row">
+            <button type="submit" class="btn btn--lime btn--lg btn--charge">
+              <svg class="btn__bolt" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+              <span data-i18n="form.send">Enviar solicitud</span>
+            </button>
+            <a href="https://wa.me/573018141027?text=Hola%20Gestiones%20El%C3%A9ctricas%2C%20quiero%20cotizar%20un%20proyecto" target="_blank" rel="noopener" class="btn btn--wa btn--lg">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="18" height="18"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.6.2-.2.3-.7 1-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.4.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.6-1.6-.9-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2 0 1.3.9 2.5 1.1 2.7.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2z"/></svg>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+        </form>
+        <div class="cta-sent" id="cta-sent" hidden>
+          <span class="cta-sent__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          <h3 data-i18n="form.okt">¡Solicitud lista!</h3>
+          <p data-i18n="form.okd">Abrimos tu correo con todo prellenado. Si prefieres, escríbenos directo por WhatsApp.</p>
+        </div>
+        <div class="cta-trust">
+          <i></i><span data-i18n="contacto.trust">Respuesta en menos de 24 h</span>
+          <em data-i18n="contacto.trust2">ingeniero asignado</em>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="assets/logo.svg" alt="Gestiones Eléctricas" />
+        <small data-i18n="footer.tagline">Soluciones eléctricas integrales</small>
+      </div>
+      <div class="footer__contact">
+        <a href="mailto:cotizacionesia2025@gmail.com">cotizacionesia2025@gmail.com</a>
+        <a href="tel:+573018141027">+57 301 814 1027</a>
+      </div>
+      <div class="socials">
+        <a href="https://instagram.com/gestioneselectricassas" target="_blank" rel="noopener" aria-label="Instagram"><img src="assets/instagram.svg" alt="Instagram" /></a>
+        <a href="https://wa.me/573018141027" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="assets/facebook.svg" alt="WhatsApp" /></a>
+      </div>
+    </div>
+    <div class="footer__legal">
+      © <span id="year"></span> Gestiones Eléctricas · <span data-i18n="footer.rights">Todos los derechos reservados.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- montaje del panel de Tweaks -->
+<div id="tweaks-root"></div>
+
+<!-- botón flotante de WhatsApp -->
+<a class="wa-fab" href="https://wa.me/573018141027?text=Hola%20Gestiones%20El%C3%A9ctricas%2C%20quiero%20cotizar%20un%20proyecto" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.6.2-.2.3-.7 1-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.4.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.6-1.6-.9-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2 0 1.3.9 2.5 1.1 2.7.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2z"/></svg>
+  <span class="wa-fab__pulse" aria-hidden="true"></span>
+</a>
+
+<!-- librerías -->
+<script src="https://unpkg.com/three@0.137.0/build/three.min.js"></script>
+<script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<!-- app -->
+<script src="js/i18n.js?v=20260618d"></script>
+<script src="js/scene.js?v=20260618d"></script>
+<script src="js/sound.js?v=20260618d"></script>
+<script src="js/app.js?v=20260618d"></script>
+<!-- Tweaks (React + Babel) -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="js/tweaks.jsx"></script>
+</body>
+</html>
