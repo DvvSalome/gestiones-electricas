@@ -27,6 +27,27 @@
   /* ---------- año ---------- */
   var y = doc.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
 
+  /* ---------- menú móvil (burger) ---------- */
+  var navEl = doc.getElementById('nav');
+  var burger = doc.getElementById('nav-burger');
+  var navLinks = doc.getElementById('nav-links');
+  if (navEl && burger && navLinks) {
+    var setMenu = function (o) {
+      navEl.classList.toggle('is-open', o);
+      burger.setAttribute('aria-expanded', o ? 'true' : 'false');
+    };
+    burger.addEventListener('click', function () {
+      setMenu(!navEl.classList.contains('is-open'));
+    });
+    navLinks.addEventListener('click', function (e) {
+      if (e.target.closest('a')) setMenu(false);
+    });
+    doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+    doc.addEventListener('click', function (e) {
+      if (navEl.classList.contains('is-open') && !navEl.contains(e.target)) setMenu(false);
+    });
+  }
+
   /* ---------- escena WebGL ---------- */
   var canvas = doc.getElementById('bg-canvas');
   var sceneOk = false;

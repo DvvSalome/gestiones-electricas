@@ -60,7 +60,7 @@
   <a class="nav__logo" href="#hero" aria-label="Gestiones Eléctricas">
     <img src="assets/logo.svg" alt="Gestiones Eléctricas" />
   </a>
-  <nav class="nav__links">
+  <nav class="nav__links" id="nav-links">
     <a href="#ia" data-i18n="nav.ia">IA</a>
     <a href="#nosotros" data-i18n="nav.nosotros">Nosotros</a>
     <a href="#soluciones" data-i18n="nav.soluciones">Soluciones</a>
@@ -79,6 +79,10 @@
     </button>
     <button id="lang-toggle" data-i18n="lang.toggle" aria-label="Cambiar idioma">EN</button>
     <a href="#contacto" class="btn btn--lime" data-i18n="nav.cta">Cotizar</a>
+    <button class="nav__burger" id="nav-burger" aria-label="Menú" aria-expanded="false" aria-controls="nav-links">
+      <svg class="nav__burger-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="nav__burger-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
   </div>
 </header>
 
@@ -498,15 +502,6 @@
   </div>
 </footer>
 
-<!-- montaje del panel de Tweaks -->
-<div id="tweaks-root"></div>
-
-<!-- botón flotante de WhatsApp -->
-<a class="wa-fab" href="https://wa.me/573018141027?text=Hola%20Gestiones%20El%C3%A9ctricas%2C%20quiero%20cotizar%20un%20proyecto" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.6.2-.2.3-.7 1-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.4.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.6-1.6-.9-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2 0 1.3.9 2.5 1.1 2.7.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2z"/></svg>
-  <span class="wa-fab__pulse" aria-hidden="true"></span>
-</a>
-
 <!-- librerías -->
 <script src="https://unpkg.com/three@0.137.0/build/three.min.js"></script>
 <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
@@ -517,11 +512,30 @@
 <script src="js/scene.js?v=20260618d"></script>
 <script src="js/sound.js?v=20260618d"></script>
 <script src="js/app.js?v=20260618d"></script>
-<!-- Tweaks (React + Babel) -->
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-<script type="text/babel" src="tweaks-panel.jsx"></script>
-<script type="text/babel" src="js/tweaks.jsx"></script>
+
+<!-- FourG Chat — widget CRM (org: gestiones-electricas · wc_gestiones_main) -->
+<script>(function(){
+  var SRC="https://crm.fourgsolutions.com/chat/wc_gestiones_main";
+  if(window.__fourgChat)return; window.__fourgChat=1;
+  var open=false, frame, btn;
+  function el(t,s){var e=document.createElement(t);for(var k in s)e.style[k]=s[k];return e;}
+  btn=el("div",{position:"fixed",right:"20px",bottom:"24px",width:"56px",height:"56px",
+    borderRadius:"50%",background:"#C7E52F",cursor:"pointer",zIndex:2147483645,
+    boxShadow:"0 4px 16px rgba(0,0,0,.35)",display:"flex",alignItems:"center",
+    justifyContent:"center",transition:"transform .15s"});
+  btn.setAttribute("aria-label","Chat con Gestiones Eléctricas");
+  btn.innerHTML='<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>';
+  frame=el("iframe",{position:"fixed",right:"20px",bottom:"96px",width:"380px",
+    height:"600px",maxWidth:"calc(100vw - 40px)",maxHeight:"calc(100vh - 180px)",
+    border:"none",borderRadius:"16px",boxShadow:"0 8px 40px rgba(0,0,0,.45)",
+    zIndex:2147483645,display:"none",background:"#14110c"});
+  function qp(){try{var p=new URLSearchParams(location.search),o={};["utm_source","utm_medium","utm_campaign","utm_term","utm_content","gclid","fbclid"].forEach(function(k){var v=p.get(k);if(v)o[k]=v;});return o;}catch(e){return {};}}
+  var qs="u="+encodeURIComponent((location.href||"").slice(0,512))+"&ref="+encodeURIComponent((document.referrer||"").slice(0,512))+"&utm="+encodeURIComponent(JSON.stringify(qp()));
+  frame.src=SRC+(SRC.indexOf("?")>=0?"&":"?")+qs; frame.title="Chat Gestiones Eléctricas";
+  function toggle(){open=!open;frame.style.display=open?"block":"none";
+    btn.style.transform=open?"scale(.92)":"scale(1)";}
+  btn.onclick=toggle;
+  document.body.appendChild(frame); document.body.appendChild(btn);
+})();</script>
 </body>
 </html>
