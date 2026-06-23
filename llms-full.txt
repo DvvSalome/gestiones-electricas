@@ -1,4 +1,4 @@
-# Gestiones Eléctricas (Versión Completa)
+﻿# Gestiones Eléctricas (Versión Completa)
 > Ingeniería eléctrica integral potenciada por IA: solar, hidroeléctrica, transmisión y alta tensión. Cumplimiento RETIE y NTC 2050. Barranquilla, Medellín, Bogotá.
 
 ## Descripción General
