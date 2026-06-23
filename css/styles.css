@@ -517,3 +517,20 @@ section{position:relative;padding:clamp(90px,13vh,160px) 0}
 .stats .stat__num,.stats .stat__label{
   text-shadow:0 1px 2px rgba(6,7,7,.55),0 4px 26px rgba(6,7,7,.42);
 }
+
+/* ============================================================
+   Mobile / touch — secciones de video sin pin (2026-06-22)
+   En táctil el scroll-scrub con seek de <video> bloquea el scroll
+   (iOS Safari restringe currentTime sin gesto). Aquí el video corre
+   en autoplay-loop de fondo y las etapas se apilan en flujo normal.
+   ============================================================ */
+@media (max-width:720px), (pointer:coarse){
+  .drive{height:auto;min-height:100svh}
+  .drive__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .drive__overlay{position:relative;min-height:100svh;justify-content:flex-start;gap:1.6rem;
+    background:linear-gradient(180deg,rgba(6,7,7,.5) 0%,rgba(6,7,7,.66) 46%,rgba(6,7,7,.9) 100%)}
+  .drive__stages,#ia-viaje .drive__stages{position:relative;height:auto!important;
+    display:flex;flex-direction:column;gap:1.4rem;margin-top:.4rem}
+  .drive__stage{position:relative;left:auto;bottom:auto;opacity:1;transform:none}
+  .drive__rail{display:none}
+}

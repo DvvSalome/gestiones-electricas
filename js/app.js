@@ -4,6 +4,9 @@
    ============================================================ */
 (function () {
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Táctil / pantalla pequeña: el scroll-scrub con seek de <video> bloquea el
+  // scroll en iOS. En ese modo los videos corren en autoplay-loop (sin pin).
+  var mobileMode = !!(window.matchMedia && window.matchMedia('(max-width: 720px), (pointer: coarse)').matches);
   var doc = document;
 
   /* ---------- idioma ---------- */
@@ -240,21 +243,36 @@
       };
       video.addEventListener('seeked', function () { setStage(stageForFrac(video.currentTime / vDur)); });
 
-      ScrollTrigger.create({
-        trigger: '#viaje', start: 'top top', end: '+=3400',
-        pin: true, scrub: true, anticipatePin: 1, refreshPriority: 1,
-        onToggle: function (self) {
-          inView = self.isActive; viajeActive = inView;
-          if (sceneOk && window.GEScene.setPaused) window.GEScene.setPaused(inView); // libera GPU para el video
-          if (window.GEAudio && sndOn) window.GEAudio.setAmbient(inView ? 1 : 0);
-          if (inView) { if (!raf) loop(); }
-          else if (!video.paused) video.pause();
-        },
-        onUpdate: function (self) {
-          targetT = Math.min(vDur - 0.05, Math.max(0, self.progress * vDur));
-          if (reduced) { try { video.currentTime = targetT; } catch (e) {} setStage(stageForFrac(self.progress)); }
-        }
-      });
+      if (mobileMode) {
+        // Táctil: nada de pin ni seek. Video de fondo en loop; las etapas se
+        // apilan visibles (CSS). El audio del viaje se ancla a la visibilidad.
+        video.loop = true; video.setAttribute('loop', '');
+        ScrollTrigger.create({
+          trigger: '#viaje', start: 'top 80%', end: 'bottom 20%',
+          onToggle: function (self) {
+            viajeActive = self.isActive;
+            if (window.GEAudio && sndOn) window.GEAudio.setAmbient(self.isActive ? 1 : 0);
+            if (self.isActive) { var p = video.play(); if (p && p.catch) p.catch(function () {}); }
+            else if (!video.paused) video.pause();
+          }
+        });
+      } else {
+        ScrollTrigger.create({
+          trigger: '#viaje', start: 'top top', end: '+=3400',
+          pin: true, scrub: true, anticipatePin: 1, refreshPriority: 1,
+          onToggle: function (self) {
+            inView = self.isActive; viajeActive = inView;
+            if (sceneOk && window.GEScene.setPaused) window.GEScene.setPaused(inView); // libera GPU para el video
+            if (window.GEAudio && sndOn) window.GEAudio.setAmbient(inView ? 1 : 0);
+            if (inView) { if (!raf) loop(); }
+            else if (!video.paused) video.pause();
+          },
+          onUpdate: function (self) {
+            targetT = Math.min(vDur - 0.05, Math.max(0, self.progress * vDur));
+            if (reduced) { try { video.currentTime = targetT; } catch (e) {} setStage(stageForFrac(self.progress)); }
+          }
+        });
+      }
       setStage(0);
     }
 
@@ -292,20 +310,31 @@
         iaSetStage(iaStageFor(iaVideo.currentTime / iaDur));
       };
       iaVideo.addEventListener('seeked', function () { iaSetStage(iaStageFor(iaVideo.currentTime / iaDur)); });
-      ScrollTrigger.create({
-        trigger: '#ia-viaje', start: 'top top', end: '+=3400',
-        pin: true, scrub: true, anticipatePin: 1, refreshPriority: 2,
-        onToggle: function (self) {
-          iaIn = self.isActive;
-          if (sceneOk && window.GEScene && window.GEScene.setPaused) window.GEScene.setPaused(iaIn);
-          if (iaIn) { if (!iaRaf) iaLoop(); }
-          else if (!iaVideo.paused) iaVideo.pause();
-        },
-        onUpdate: function (self) {
-          iaTarget = Math.min(iaDur - 0.05, Math.max(0, self.progress * iaDur));
-          if (reduced) { try { iaVideo.currentTime = iaTarget; } catch (e) {} iaSetStage(iaStageFor(self.progress)); }
-        }
-      });
+      if (mobileMode) {
+        iaVideo.loop = true; iaVideo.setAttribute('loop', '');
+        ScrollTrigger.create({
+          trigger: '#ia-viaje', start: 'top 80%', end: 'bottom 20%',
+          onToggle: function (self) {
+            if (self.isActive) { var p = iaVideo.play(); if (p && p.catch) p.catch(function () {}); }
+            else if (!iaVideo.paused) iaVideo.pause();
+          }
+        });
+      } else {
+        ScrollTrigger.create({
+          trigger: '#ia-viaje', start: 'top top', end: '+=3400',
+          pin: true, scrub: true, anticipatePin: 1, refreshPriority: 2,
+          onToggle: function (self) {
+            iaIn = self.isActive;
+            if (sceneOk && window.GEScene && window.GEScene.setPaused) window.GEScene.setPaused(iaIn);
+            if (iaIn) { if (!iaRaf) iaLoop(); }
+            else if (!iaVideo.paused) iaVideo.pause();
+          },
+          onUpdate: function (self) {
+            iaTarget = Math.min(iaDur - 0.05, Math.max(0, self.progress * iaDur));
+            if (reduced) { try { iaVideo.currentTime = iaTarget; } catch (e) {} iaSetStage(iaStageFor(self.progress)); }
+          }
+        });
+      }
       iaSetStage(0);
     }
 

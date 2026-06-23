@@ -239,7 +239,9 @@ window.GEScene = (function () {
   function onResize() {
     W = window.innerWidth; H = window.innerHeight;
     renderer.setSize(W, H, false);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+    // En móvil/táctil, pixelRatio 1 (la alta densidad no se nota y alivia GPU+batería).
+    var smallScreen = W <= 720 || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+    renderer.setPixelRatio(smallScreen ? 1 : Math.min(window.devicePixelRatio, 1.5));
     camera.aspect = W / H;
     camera.updateProjectionMatrix();
   }
