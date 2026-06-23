@@ -32,11 +32,11 @@ window.GE_I18N = {
     "soluciones.sub": "Generación, transmisión y consumo, resueltos por un solo equipo responsable de principio a fin.",
     "sol.solar.t": "Energía solar",
     "sol.solar.d": "Diseño, instalación y monitoreo de sistemas fotovoltaicos para autoconsumo industrial y residencial.",
-    "sol.hidro.t": "Hidroeléctrica",
-    "sol.hidro.d": "Ingeniería y operación de generación hidráulica: del recurso hídrico al megavatio entregado.",
+    "sol.hidro.t": "Eficiencia con IA",
+    "sol.hidro.d": "Mantenimiento predictivo, modelado de demanda y auditorías energéticas automatizadas para reducir costos operativos.",
     "sol.red.t": "Transmisión y alta tensión",
     "sol.red.d": "Líneas, subestaciones y patios de maniobra. Llevamos la energía con confiabilidad de red.",
-
+    
     "servicios.kicker": "Capacidades",
     "servicios.title": "Servicios de ingeniería eléctrica",
     "servicios.sub": "Ingeniería que cumple norma y entrega resultados: confiabilidad, seguridad y continuidad operativa.",
@@ -68,14 +68,14 @@ window.GE_I18N = {
     "serv.auto.d": "Control, protección y maniobra.",
     "serv.mant.t": "Mantenimiento y mediciones",
     "serv.mant.d": "Diagnóstico, pruebas y continuidad.",
-
+    
     "red.kicker": "La red en movimiento",
     "red.title": "Cada kilómetro, bajo control",
     "red.body": "Recorre con nosotros la columna vertebral del sistema: torres, conductores y subestaciones que mantienen la energía fluyendo, monitoreados en tiempo real.",
     "red.tag1": "Líneas de alta tensión",
     "red.tag2": "Subestaciones",
     "red.tag3": "Monitoreo 24/7",
-
+    
     "nav.viaje": "Viaje",
     "viaje.kicker": "Recorrido interactivo",
     "viaje.title": "El viaje de la energía",
@@ -90,7 +90,7 @@ window.GE_I18N = {
     "viaje.s4.d": "Se transforma y se regula para distribuirla con seguridad.",
     "viaje.s5.t": "Consumo",
     "viaje.s5.d": "Llega encendida a empresas y hogares.",
-
+    
     "proyectos.kicker": "Operación",
     "proyectos.title": "Datos que sostienen decisiones",
     "proyectos.body": "Tableros de monitoreo que convierten el comportamiento de la red en información accionable: demanda, generación y disponibilidad en una sola vista.",
@@ -102,14 +102,14 @@ window.GE_I18N = {
     "dash.k2": "Generación",
     "dash.k3": "Disponibilidad",
     "dash.foot": "Vista de demostración del tablero de monitoreo",
-
+    
     "cifras.title": "Respaldados por resultados",
     "cifras.sub": "Resultados que respaldan cada proyecto que entregamos",
     "cifras.1": "empresas asesoradas",
     "cifras.2": "proyectos ejecutados",
     "cifras.3": "cumplimiento RETIE y NTC 2050",
     "cifras.4": "ciudades: Barranquilla, Medellín, Bogotá",
-
+    
     "contacto.kicker": "Hablemos",
     "contacto.title": "Pongamos tu energía en marcha",
     "contacto.body": "Cuéntanos qué necesitas conectar. Un ingeniero revisará tu requerimiento y te responderá con una propuesta.",
@@ -121,7 +121,7 @@ window.GE_I18N = {
     "form.phone": "Teléfono / WhatsApp",
     "form.type": "Tipo de proyecto",
     "form.t.solar": "Energía solar",
-    "form.t.hidro": "Hidroeléctrica",
+    "form.t.hidro": "Eficiencia con IA",
     "form.t.red": "Transmisión / alta tensión",
     "form.t.auto": "Automatización y tableros",
     "form.t.mant": "Mantenimiento",
@@ -164,8 +164,8 @@ window.GE_I18N = {
     "soluciones.sub": "Generation, transmission and consumption, handled by one team accountable from start to finish.",
     "sol.solar.t": "Solar energy",
     "sol.solar.d": "Design, installation and monitoring of photovoltaic systems for industrial and residential self-consumption.",
-    "sol.hidro.t": "Hydroelectric",
-    "sol.hidro.d": "Engineering and operation of hydro generation: from the water resource to the delivered megawatt.",
+    "sol.hidro.t": "AI-Driven Efficiency",
+    "sol.hidro.d": "Predictive maintenance, demand modeling, and automated energy audits to reduce operational costs.",
     "sol.red.t": "Transmission & high voltage",
     "sol.red.d": "Lines, substations and switchyards. We carry energy with grid-grade reliability.",
 
@@ -253,7 +253,7 @@ window.GE_I18N = {
     "form.phone": "Phone / WhatsApp",
     "form.type": "Project type",
     "form.t.solar": "Solar energy",
-    "form.t.hidro": "Hydroelectric",
+    "form.t.hidro": "AI-Driven Efficiency",
     "form.t.red": "Transmission / high voltage",
     "form.t.auto": "Automation & switchboards",
     "form.t.mant": "Maintenance",

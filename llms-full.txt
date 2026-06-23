@@ -1,5 +1,5 @@
 ﻿# Gestiones Eléctricas (Versión Completa)
-> Ingeniería eléctrica integral potenciada por IA: solar, hidroeléctrica, transmisión y alta tensión. Cumplimiento RETIE y NTC 2050. Barranquilla, Medellín, Bogotá.
+> Ingeniería eléctrica integral potenciada por IA: solar, eficiencia con IA, transmisión y alta tensión. Cumplimiento RETIE y NTC 2050. Barranquilla, Medellín, Bogotá.
 
 ## Descripción General
 Gestiones Eléctricas es una firma de ingeniería en Colombia dedicada al ciclo completo del diseño, montaje, simulación, y mantenimiento de sistemas de potencia. Aplicamos inteligencia artificial para optimizar simulaciones en software de ingeniería (como ETAP) y para automatizar flujos de monitoreo y generación de reportes técnicos.
@@ -19,7 +19,7 @@ Gestiones Eléctricas es una firma de ingeniería en Colombia dedicada al ciclo 
 
 ### 3. Soluciones de Energía (#soluciones)
 - **Solar Fotovoltaica**: Proyectos residenciales e industriales para autoconsumo, dimensionamiento y puesta en marcha.
-- **Centrales Hidroeléctricas**: Estudios hidráulicos, selección de turbinas y conexión a la red nacional.
+- **Eficiencia con IA**: Mantenimiento predictivo, modelado de demanda y auditorías energéticas automatizadas para reducir costos operativos.
 - **Líneas de Alta Tensión**: Conexión de subestaciones, patios de maniobra y cálculo de conductores.
 
 ### 4. Servicios y Capacidades (#servicios)

@@ -1,10 +1,10 @@
 ﻿# Gestiones Eléctricas
-> Ingeniería eléctrica integral potenciada por IA: solar, hidroeléctrica, transmisión y alta tensión. Cumplimiento RETIE y NTC 2050. Barranquilla, Medellín, Bogotá.
+> Ingeniería eléctrica integral potenciada por IA: solar, eficiencia con IA, transmisión y alta tensión. Cumplimiento RETIE y NTC 2050. Barranquilla, Medellín, Bogotá.
 
 ## Main Pages
 - [IA](https://gestioneselectricas.com/#ia): Detalles sobre cómo aplicamos la IA en el modelado, simulación y monitoreo en tiempo real de sistemas eléctricos.
 - [Nosotros](https://gestioneselectricas.com/#nosotros): Información sobre el equipo de ingenieros y las capacidades del ciclo eléctrico completo.
-- [Soluciones](https://gestioneselectricas.com/#soluciones): Soluciones en energía solar fotovoltaica, generación hidroeléctrica y líneas de transmisión.
+- [Soluciones](https://gestioneselectricas.com/#soluciones): Soluciones en energía solar fotovoltaica, eficiencia con IA y líneas de transmisión.
 - [Servicios](https://gestioneselectricas.com/#servicios): Capacidades en diseño, instalación, tableros de automatización y mantenimiento.
 - [La red](https://gestioneselectricas.com/#red): Detalles sobre el monitoreo y control de líneas y subestaciones eléctricas.
 - [Viaje](https://gestioneselectricas.com/#viaje): Recorrido interactivo animado que muestra el flujo de la energía.
