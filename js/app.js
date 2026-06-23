@@ -197,8 +197,79 @@
        Seeking frame-a-frame es entrecortado en videos con keyframes escasos.
        En su lugar REPRODUCIMOS hacia adelante (decodificación fluida) hacia el
        tiempo objetivo que marca el scroll; solo el scroll hacia arriba hace seek. */
-    var video = doc.getElementById('drive-video');
-    if (video) {
+    /* ---- global canvas rendering and frame preloader helpers ---- */
+    function drawFrame(canvas, ctx, img) {
+      if (!img || !img.naturalWidth) return;
+      var W = canvas.clientWidth;
+      var H = canvas.clientHeight;
+      var DPR = Math.min(window.devicePixelRatio || 1, 2);
+      if (canvas.width !== Math.round(W * DPR) || canvas.height !== Math.round(H * DPR)) {
+        canvas.width = Math.round(W * DPR);
+        canvas.height = Math.round(H * DPR);
+      }
+      var iw = img.naturalWidth, ih = img.naturalHeight;
+      var cw = canvas.width, ch = canvas.height;
+      var cr = cw / ch, ir = iw / ih;
+      var sx, sy, sw, sh;
+      if (cr > ir) { sw = iw; sh = iw / cr; sx = 0; sy = (ih - sh) / 2; }
+      else { sh = ih; sw = ih * cr; sx = (iw - sw) / 2; sy = 0; }
+      ctx.clearRect(0, 0, cw, ch);
+      ctx.drawImage(img, sx, sy, sw, sh, 0, 0, cw, ch);
+    }
+
+    function preloadFrames(prefix, count, array, callback) {
+      // 1. Load only the first frame immediately to render initial canvas state
+      var firstImg = new Image();
+      firstImg.onload = function() {
+        array[0] = firstImg;
+        if (callback) callback();
+        
+        // 2. Defer loading of remaining frames until page has fully loaded
+        var startDeferredLoad = function() {
+          var idx = 1;
+          function loadBatch() {
+            if (idx >= count) return;
+            var batchEnd = Math.min(idx + 10, count);
+            for (; idx < batchEnd; idx++) {
+              (function(i) {
+                var img = new Image();
+                img.onload = function() { array[i] = img; };
+                img.src = 'assets/frames/' + prefix + '/f_' + String(i + 1).padStart(3, '0') + '.webp';
+              })(idx);
+            }
+            if (idx < count) {
+              // Use a 50ms interval between batches to prevent network congestion
+              setTimeout(loadBatch, 50);
+            }
+          }
+          // Start background loading after 300ms idle time
+          setTimeout(loadBatch, 300);
+        };
+
+        if (document.readyState === 'complete') {
+          startDeferredLoad();
+        } else {
+          window.addEventListener('load', startDeferredLoad);
+        }
+      };
+      firstImg.onerror = function() {
+        if (callback) callback();
+      };
+      firstImg.src = 'assets/frames/' + prefix + '/f_001.webp';
+    }
+
+    /* ---- viaje de la energía: secuencia de imágenes en canvas ---- */
+    var flowCanvas = doc.getElementById('drive-canvas');
+    var flowCtx = flowCanvas ? flowCanvas.getContext('2d', { alpha: false }) : null;
+    var flowFrames = [];
+    var flowFrameCount = 192;
+    var lastDrawnFlowFrame = 0;
+
+    if (flowCanvas && flowCtx) {
+      preloadFrames('flow', flowFrameCount, flowFrames, function() {
+        if (flowFrames[0]) drawFrame(flowCanvas, flowCtx, flowFrames[0]);
+      });
+
       var stages = doc.querySelectorAll('#viaje .drive__stage');
       var dots = doc.querySelectorAll('#viaje .drive__dot');
       var curStage = -1;
@@ -208,52 +279,32 @@
         dots.forEach(function (d, idx) { d.classList.toggle('is-active', idx <= i); });
         if (sndOn && viajeActive && window.GEAudio) window.GEAudio.chime(i);
       };
-      // Límites de etapa como fracción del video (tiempos reales del render):
-      // 01 Solar 0–1.0s · 02 Hidro 1.0–1.75s · 03 Transmisión 1.75–4.65s
-      // 04 Subestación 4.65–6.4s · 05 Consumo 6.4–8.0s
+      
       var bounds = [0.125, 0.219, 0.581, 0.800];
       var stageForFrac = function (f) {
         for (var i = 0; i < bounds.length; i++) { if (f < bounds[i]) return i; }
         return 4;
       };
-      var vDur = 8, targetT = 0, inView = false, raf = null, lastSeek = 0;
-      video.addEventListener('loadedmetadata', function () { vDur = video.duration || 8; });
-      var paint = function () { try { video.currentTime = 0.04; } catch (e) {} };
-      if (video.readyState >= 1) paint(); else video.addEventListener('loadeddata', paint);
-
-      var loop = function () {
-        if (!inView) { raf = null; if (!video.paused) video.pause(); return; }
-        raf = requestAnimationFrame(loop);
-        if (video.seeking) { return; }   // un solo seek en vuelo: evita acumulación al subir
-        var t = video.currentTime, dt = targetT - t;
-        if (dt > 0.06) {
-          // adelante → reproducir (más rápido si está lejos): decodificación fluida
-          video.playbackRate = Math.min(6, 1 + dt * 2.6);
-          if (video.paused) { var p = video.play(); if (p && p.catch) p.catch(function () {}); }
-        } else if (dt < -0.12) {
-          // scroll hacia arriba → seek: SOLO uno a la vez (gobernado por 'seeking'),
-          // así nunca se acumulan y el hilo principal no se satura
-          if (!video.paused) video.pause();
-          try { video.currentTime = Math.max(0, targetT); } catch (e) {}
-        } else {
-          // suficientemente cerca → fijar el frame
-          if (!video.paused) video.pause();
-        }
-        setStage(stageForFrac(video.currentTime / vDur));
-      };
-      video.addEventListener('seeked', function () { setStage(stageForFrac(video.currentTime / vDur)); });
 
       if (mobileMode) {
-        // Táctil: nada de pin ni seek. Video de fondo en loop; las etapas se
-        // apilan visibles (CSS). El audio del viaje se ancla a la visibilidad.
-        video.loop = true; video.setAttribute('loop', '');
+        var curFrame = 0;
+        var animId = null;
+        var animLoop = function() {
+          if (!viajeActive) { animId = null; return; }
+          curFrame = (curFrame + 1) % flowFrameCount;
+          var img = flowFrames[curFrame];
+          if (img) drawFrame(flowCanvas, flowCtx, img);
+          animId = requestAnimationFrame(animLoop);
+        };
+
         ScrollTrigger.create({
           trigger: '#viaje', start: 'top 80%', end: 'bottom 20%',
           onToggle: function (self) {
             viajeActive = self.isActive;
             if (window.GEAudio && sndOn) window.GEAudio.setAmbient(self.isActive ? 1 : 0);
-            if (self.isActive) { var p = video.play(); if (p && p.catch) p.catch(function () {}); }
-            else if (!video.paused) video.pause();
+            if (self.isActive) {
+              if (!animId) animLoop();
+            }
           }
         });
       } else {
@@ -261,24 +312,43 @@
           trigger: '#viaje', start: 'top top', end: '+=3400',
           pin: true, scrub: true, anticipatePin: 1, refreshPriority: 1,
           onToggle: function (self) {
-            inView = self.isActive; viajeActive = inView;
-            if (sceneOk && window.GEScene.setPaused) window.GEScene.setPaused(inView); // libera GPU para el video
-            if (window.GEAudio && sndOn) window.GEAudio.setAmbient(inView ? 1 : 0);
-            if (inView) { if (!raf) loop(); }
-            else if (!video.paused) video.pause();
+            viajeActive = self.isActive;
+            if (sceneOk && window.GEScene && window.GEScene.setPaused) window.GEScene.setPaused(viajeActive);
+            if (window.GEAudio && sndOn) window.GEAudio.setAmbient(viajeActive ? 1 : 0);
           },
           onUpdate: function (self) {
-            targetT = Math.min(vDur - 0.05, Math.max(0, self.progress * vDur));
-            if (reduced) { try { video.currentTime = targetT; } catch (e) {} setStage(stageForFrac(self.progress)); }
+            var progress = self.progress;
+            var frameIndex = Math.min(flowFrameCount - 1, Math.floor(progress * flowFrameCount));
+            var img = flowFrames[frameIndex];
+            if (img) {
+              drawFrame(flowCanvas, flowCtx, img);
+              lastDrawnFlowFrame = frameIndex;
+            }
+            setStage(stageForFrac(progress));
           }
         });
       }
       setStage(0);
+
+      window.addEventListener('resize', function() {
+        var img = flowFrames[lastDrawnFlowFrame] || flowFrames[0];
+        if (img) drawFrame(flowCanvas, flowCtx, img);
+      });
     }
 
-    /* ---- IA que opera la red: video Flow guiado por scroll (mismo motor fluido) ---- */
-    var iaVideo = doc.getElementById('ia-video');
-    if (iaVideo) {
+    /* ---- IA que opera la red: secuencia de imágenes en canvas ---- */
+    var iaCanvas = doc.getElementById('ia-canvas');
+    var iaCtx = iaCanvas ? iaCanvas.getContext('2d', { alpha: false }) : null;
+    var iaFrames = [];
+    var iaFrameCount = 240;
+    var lastDrawnIaFrame = 0;
+    var iaActive = false;
+
+    if (iaCanvas && iaCtx) {
+      preloadFrames('ai-icons', iaFrameCount, iaFrames, function() {
+        if (iaFrames[0]) drawFrame(iaCanvas, iaCtx, iaFrames[0]);
+      });
+
       var iaStages = doc.querySelectorAll('#ia-viaje .drive__stage');
       var iaDots = doc.querySelectorAll('#ia-viaje .drive__dot');
       var iaCur = -1;
@@ -287,36 +357,31 @@
         iaStages.forEach(function (s, idx) { s.classList.toggle('is-active', idx === i); });
         iaDots.forEach(function (d, idx) { d.classList.toggle('is-active', idx <= i); });
       };
+      
       var iaBounds = [0.25, 0.5, 0.75];
-      var iaStageFor = function (f) { for (var i = 0; i < iaBounds.length; i++) { if (f < iaBounds[i]) return i; } return 3; };
-      var iaDur = 10, iaTarget = 0, iaIn = false, iaRaf = null;
-      iaVideo.addEventListener('loadedmetadata', function () { iaDur = iaVideo.duration || 10; });
-      var iaPaint = function () { try { iaVideo.currentTime = 0.04; } catch (e) {} };
-      if (iaVideo.readyState >= 1) iaPaint(); else iaVideo.addEventListener('loadeddata', iaPaint);
-      var iaLoop = function () {
-        if (!iaIn) { iaRaf = null; if (!iaVideo.paused) iaVideo.pause(); return; }
-        iaRaf = requestAnimationFrame(iaLoop);
-        if (iaVideo.seeking) { return; }
-        var t = iaVideo.currentTime, dt = iaTarget - t;
-        if (dt > 0.06) {
-          iaVideo.playbackRate = Math.min(6, 1 + dt * 2.6);
-          if (iaVideo.paused) { var p = iaVideo.play(); if (p && p.catch) p.catch(function () {}); }
-        } else if (dt < -0.12) {
-          if (!iaVideo.paused) iaVideo.pause();
-          try { iaVideo.currentTime = Math.max(0, iaTarget); } catch (e) {}
-        } else {
-          if (!iaVideo.paused) iaVideo.pause();
-        }
-        iaSetStage(iaStageFor(iaVideo.currentTime / iaDur));
+      var iaStageFor = function (f) {
+        for (var i = 0; i < iaBounds.length; i++) { if (f < iaBounds[i]) return i; }
+        return 3;
       };
-      iaVideo.addEventListener('seeked', function () { iaSetStage(iaStageFor(iaVideo.currentTime / iaDur)); });
+
       if (mobileMode) {
-        iaVideo.loop = true; iaVideo.setAttribute('loop', '');
+        var curIaFrame = 0;
+        var iaAnimId = null;
+        var iaAnimLoop = function() {
+          if (!iaActive) { iaAnimId = null; return; }
+          curIaFrame = (curIaFrame + 1) % iaFrameCount;
+          var img = iaFrames[curIaFrame];
+          if (img) drawFrame(iaCanvas, iaCtx, img);
+          iaAnimId = requestAnimationFrame(iaAnimLoop);
+        };
+
         ScrollTrigger.create({
           trigger: '#ia-viaje', start: 'top 80%', end: 'bottom 20%',
           onToggle: function (self) {
-            if (self.isActive) { var p = iaVideo.play(); if (p && p.catch) p.catch(function () {}); }
-            else if (!iaVideo.paused) iaVideo.pause();
+            iaActive = self.isActive;
+            if (self.isActive) {
+              if (!iaAnimId) iaAnimLoop();
+            }
           }
         });
       } else {
@@ -324,18 +389,27 @@
           trigger: '#ia-viaje', start: 'top top', end: '+=3400',
           pin: true, scrub: true, anticipatePin: 1, refreshPriority: 2,
           onToggle: function (self) {
-            iaIn = self.isActive;
-            if (sceneOk && window.GEScene && window.GEScene.setPaused) window.GEScene.setPaused(iaIn);
-            if (iaIn) { if (!iaRaf) iaLoop(); }
-            else if (!iaVideo.paused) iaVideo.pause();
+            iaActive = self.isActive;
+            if (sceneOk && window.GEScene && window.GEScene.setPaused) window.GEScene.setPaused(iaActive);
           },
           onUpdate: function (self) {
-            iaTarget = Math.min(iaDur - 0.05, Math.max(0, self.progress * iaDur));
-            if (reduced) { try { iaVideo.currentTime = iaTarget; } catch (e) {} iaSetStage(iaStageFor(self.progress)); }
+            var progress = self.progress;
+            var frameIndex = Math.min(iaFrameCount - 1, Math.floor(progress * iaFrameCount));
+            var img = iaFrames[frameIndex];
+            if (img) {
+              drawFrame(iaCanvas, iaCtx, img);
+              lastDrawnIaFrame = frameIndex;
+            }
+            iaSetStage(iaStageFor(progress));
           }
         });
       }
       iaSetStage(0);
+
+      window.addEventListener('resize', function() {
+        var img = iaFrames[lastDrawnIaFrame] || iaFrames[0];
+        if (img) drawFrame(iaCanvas, iaCtx, img);
+      });
     }
 
     /* ---- dashboard vivo (proyectos) ---- */

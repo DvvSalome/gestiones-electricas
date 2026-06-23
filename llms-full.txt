@@ -1,0 +1,35 @@
+# Gestiones Eléctricas (Versión Completa)
+> Ingeniería eléctrica integral potenciada por IA: solar, hidroeléctrica, transmisión y alta tensión. Cumplimiento RETIE y NTC 2050. Barranquilla, Medellín, Bogotá.
+
+## Descripción General
+Gestiones Eléctricas es una firma de ingeniería en Colombia dedicada al ciclo completo del diseño, montaje, simulación, y mantenimiento de sistemas de potencia. Aplicamos inteligencia artificial para optimizar simulaciones en software de ingeniería (como ETAP) y para automatizar flujos de monitoreo y generación de reportes técnicos.
+
+## Contenido Detallado de Páginas
+
+### 1. Inteligencia Artificial en la Red (#ia)
+- **Monitoreo en Nube (Google Cloud)**: Centralizamos los datos operativos de subestaciones y redes.
+- **Predicción (Gemini)**: Detectamos anomalías de carga y anticipamos fallas mediante aprendizaje automático.
+- **Decisiones (Claude)**: Generamos reportes inteligentes automatizados a partir del estado de la red.
+- **Automatización (n8n)**: Orquestamos respuestas automáticas a eventos en la infraestructura eléctrica.
+
+### 2. Nosotros (#nosotros)
+- Equipo propio de ingenieros con alta especialización técnica.
+- Cumplimiento estricto del Reglamento Técnico de Instalaciones Eléctricas (RETIE) y NTC 2050.
+- Servicios para clientes industriales, comerciales y residenciales.
+
+### 3. Soluciones de Energía (#soluciones)
+- **Solar Fotovoltaica**: Proyectos residenciales e industriales para autoconsumo, dimensionamiento y puesta en marcha.
+- **Centrales Hidroeléctricas**: Estudios hidráulicos, selección de turbinas y conexión a la red nacional.
+- **Líneas de Alta Tensión**: Conexión de subestaciones, patios de maniobra y cálculo de conductores.
+
+### 4. Servicios y Capacidades (#servicios)
+- **Diseño**: Planos de ingeniería de detalle y memorias de cálculo.
+- **Instalaciones**: Tendido de líneas, redes internas y conexionado certificado.
+- **Automatización**: Tableros de control de motores, transferencia automática y PLC.
+- **Mantenimiento**: Pruebas de resistencia de aislamiento (Megger), resistividad de terrenos y termografía.
+
+## Contacto Comercial
+- Sitio web: https://gestioneselectricas.com
+- Correo: cotizacionesia2025@gmail.com
+- Dirección principal: Barranquilla, Colombia (con cobertura nacional)
+- Teléfono / WhatsApp: +57 301 814 1027

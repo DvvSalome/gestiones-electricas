@@ -1,0 +1,17 @@
+# Gestiones Eléctricas
+> Ingeniería eléctrica integral potenciada por IA: solar, hidroeléctrica, transmisión y alta tensión. Cumplimiento RETIE y NTC 2050. Barranquilla, Medellín, Bogotá.
+
+## Main Pages
+- [IA](https://gestioneselectricas.com/#ia): Detalles sobre cómo aplicamos la IA en el modelado, simulación y monitoreo en tiempo real de sistemas eléctricos.
+- [Nosotros](https://gestioneselectricas.com/#nosotros): Información sobre el equipo de ingenieros y las capacidades del ciclo eléctrico completo.
+- [Soluciones](https://gestioneselectricas.com/#soluciones): Soluciones en energía solar fotovoltaica, generación hidroeléctrica y líneas de transmisión.
+- [Servicios](https://gestioneselectricas.com/#servicios): Capacidades en diseño, instalación, tableros de automatización y mantenimiento.
+- [La red](https://gestioneselectricas.com/#red): Detalles sobre el monitoreo y control de líneas y subestaciones eléctricas.
+- [Viaje](https://gestioneselectricas.com/#viaje): Recorrido interactivo animado que muestra el flujo de la energía.
+- [Proyectos](https://gestioneselectricas.com/#proyectos): Demostración en vivo de tableros de control y KPIs operativos.
+- [Cotizar](https://gestioneselectricas.com/#contacto): Formulario de contacto directo para cotizaciones e información de proyectos.
+
+## Contact
+- Website: https://gestioneselectricas.com
+- Email: cotizacionesia2025@gmail.com
+- Telephone: +57 301 814 1027
