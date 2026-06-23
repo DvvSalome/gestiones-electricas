@@ -492,12 +492,37 @@
             </a>
           </div>
         </form>
+        <!-- Success State -->
         <div class="cta-sent" id="cta-sent" hidden>
           <span class="cta-sent__ico" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
           </span>
-          <h3 data-i18n="form.okt">¡Solicitud lista!</h3>
-          <p data-i18n="form.okd">Abrimos tu correo con todo prellenado. Si prefieres, escríbenos directo por WhatsApp.</p>
+          <h3 data-i18n="form.okt">¡Solicitud recibida!</h3>
+          <p data-i18n="form.okd">Hemos recibido tu mensaje y nos pondremos en contacto en breve. Si tienes prisa, escríbenos por WhatsApp.</p>
+          <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1rem;">
+            <a href="https://wa.me/573018141027?text=Hola%20Gestiones%20El%C3%A9ctricas%2C%20acabo%20de%20enviar%20una%20solicitud%20en%20la%20web" target="_blank" rel="noopener" class="btn btn--wa btn--lg">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="18" height="18"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.6.2-.2.3-.7 1-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.4.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.6-1.6-.9-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2 0 1.3.9 2.5 1.1 2.7.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2z"/></svg>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Failure State -->
+        <div class="cta-sent" id="cta-fail" hidden>
+          <span class="cta-sent__ico" aria-hidden="true" style="background: rgba(255, 107, 107, 0.14); color: #ff6b6b; border: 1px solid rgba(255, 107, 107, 0.4)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </span>
+          <h3 data-i18n="form.errt">¡Hubo un inconveniente!</h3>
+          <p data-i18n="form.errd">No pudimos conectar con el servidor. Por favor, escríbenos directamente por WhatsApp o envíanos un correo.</p>
+          <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <a href="https://wa.me/573018141027?text=Hola%20Gestiones%20El%C3%A9ctricas%2C%20intent%C3%A9%20enviar%20el%20formulario%20y%20fall%C3%B3" target="_blank" rel="noopener" class="btn btn--wa btn--lg">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="18" height="18"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.6.2-.2.3-.7 1-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.4.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.6-1.6-.9-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2 0 1.3.9 2.5 1.1 2.7.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2z"/></svg>
+              <span>WhatsApp</span>
+            </a>
+            <a id="cta-mail-btn" href="#" class="btn btn--charge btn--lg" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff;">
+              <span data-i18n="form.sendmail">Enviar por Correo</span>
+            </a>
+          </div>
         </div>
         <div class="cta-trust">
           <i></i><span data-i18n="contacto.trust">Respuesta en menos de 24 h</span>

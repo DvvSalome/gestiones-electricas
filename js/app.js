@@ -481,17 +481,25 @@
         var vid = localStorage.getItem('ge-form-visitor');
         if (!vid) { vid = 'form_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 8); localStorage.setItem('ge-form-visitor', vid); }
         var sent = doc.getElementById('cta-sent');
+        var fail = doc.getElementById('cta-fail');
         var showSent = function () { form.style.display = 'none'; if (sent) sent.hidden = false; };
+        var showFail = function () {
+          form.style.display = 'none';
+          if (fail) {
+            fail.hidden = false;
+            var mailBtn = doc.getElementById('cta-mail-btn');
+            if (mailBtn) {
+              var subject = 'Cotización · ' + tipo + ' · ' + nombre;
+              mailBtn.href = 'mailto:cotizacionesia2025@gmail.com?subject=' +
+                encodeURIComponent(subject) + '&body=' + encodeURIComponent(lead);
+            }
+          }
+        };
         fetch('https://crm.fourgsolutions.com/api/widget/wc_gestiones_main', {
           method: 'POST', mode: 'no-cors',
           headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
           body: JSON.stringify({ visitor_id: vid, text: lead, context: { current_url: location.href, source: 'contact_form' } })
-        }).then(showSent).catch(function () {
-          // CRM inalcanzable → no perder el lead: caer a mailto.
-          var subject = 'Cotización · ' + tipo + ' · ' + nombre;
-          window.location.href = 'mailto:cotizacionesia2025@gmail.com?subject=' +
-            encodeURIComponent(subject) + '&body=' + encodeURIComponent(lead);
-        });
+        }).then(showSent).catch(showFail);
       });
       // limpiar estado inválido al escribir
       form.addEventListener('input', function (e) {
