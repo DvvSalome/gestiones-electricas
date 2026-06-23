@@ -153,7 +153,8 @@
           gsap.from(el, { opacity: 0, y: 30, duration: 0.9, ease: 'power2.out', delay: 0.1 + delayOf(el) });
         } else {
           gsap.from(el, {
-            opacity: 0, y: 34, duration: 0.9, ease: 'power2.out', immediateRender: false,
+            opacity: 0, y: 34, duration: 0.9, ease: 'power2.out',
+            // ponytail: removed immediateRender: false so elements start at opacity 0 immediately on load and do not flash when entering viewport
             delay: delayOf(el),
             scrollTrigger: { trigger: el, start: 'top 88%' }
           });
