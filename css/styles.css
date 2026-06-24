@@ -525,12 +525,42 @@ section{position:relative;padding:clamp(90px,13vh,160px) 0}
    en autoplay-loop de fondo y las etapas se apilan en flujo normal.
    ============================================================ */
 @media (max-width:720px), (pointer:coarse){
-  .drive{height:auto;min-height:100svh}
-  .drive__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .drive__overlay{position:relative;min-height:100svh;justify-content:flex-start;gap:1.6rem;
-    background:linear-gradient(180deg,rgba(6,7,7,.5) 0%,rgba(6,7,7,.66) 46%,rgba(6,7,7,.9) 100%)}
-  .drive__stages,#ia-viaje .drive__stages{position:relative;height:auto!important;
-    display:flex;flex-direction:column;gap:1.4rem;margin-top:.4rem}
+  .drive{
+    height:auto;
+    min-height:100svh;
+    display:grid;
+    grid-template-columns:1fr;
+    grid-template-rows:1fr;
+    position:relative;
+  }
+  .drive__video{
+    grid-area:1 / 1 / 2 / 2;
+    position:sticky;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    object-fit:cover;
+    z-index:0;
+  }
+  .drive__overlay{
+    grid-area:1 / 1 / 2 / 2;
+    position:relative;
+    z-index:2;
+    min-height:100svh;
+    justify-content:flex-start;
+    gap:1.6rem;
+    background:linear-gradient(180deg,rgba(6,7,7,.5) 0%,rgba(6,7,7,.66) 46%,rgba(6,7,7,.9) 100%);
+  }
+  .drive__stages,#ia-viaje .drive__stages{
+    position:relative;
+    width:100%;
+    height:auto!important;
+    display:flex;
+    flex-direction:column;
+    gap:1.4rem;
+    margin-top:.4rem;
+  }
   .drive__stage{position:relative;left:auto;bottom:auto;opacity:1;transform:none}
   .drive__rail{display:none}
 }

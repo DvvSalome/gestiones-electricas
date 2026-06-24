@@ -136,6 +136,7 @@ window.GE_I18N = {
     "form.err": "Completa los campos requeridos.",
     "contacto.call": "Llamar ahora",
     "footer.rights": "Todos los derechos reservados.",
+    "footer.sedes": "Sedes: Barranquilla · Medellín · Bogotá",
     "footer.tagline": "Soluciones eléctricas integrales"
   },
   en: {
@@ -271,6 +272,7 @@ window.GE_I18N = {
     "form.err": "Complete all required fields.",
     "contacto.call": "Call now",
     "footer.rights": "All rights reserved.",
+    "footer.sedes": "Offices: Barranquilla · Medellín · Bogotá",
     "footer.tagline": "End-to-end electrical solutions"
   }
 };
