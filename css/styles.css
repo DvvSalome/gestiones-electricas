@@ -563,4 +563,15 @@ section{position:relative;padding:clamp(90px,13vh,160px) 0}
   }
   .drive__stage{position:relative;left:auto;bottom:auto;opacity:1;transform:none}
   .drive__rail{display:none}
+  .hero__inner::before,
+  .about__text::before,
+  .red__inner::before,
+  .ops__text::before {
+    inset: -26px 0;
+    border-radius: 0;
+  }
+  #cifras .sec-head::before {
+    inset: -22px 0;
+    border-radius: 0;
+  }
 }
