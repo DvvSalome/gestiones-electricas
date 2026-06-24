@@ -29,6 +29,8 @@ window.GEScene = (function () {
   var gridMat, haloMat, wireMatRef;
   // cruce torres <-> red neuronal (1 = neuronal, 0 = torres)
   var neuralBlend = 0, neuralTarget = 0, geNeuralRoutes = 0;
+  // visibilidad de las torres por sección (1 = visible, 0 = oculta)
+  var towersBlend = 1, towersTarget = 1;
 
   function lerp(a, b, t) { return a + (b - a) * t; }
 
@@ -288,8 +290,9 @@ window.GEScene = (function () {
 
     // cruce torres <-> red neuronal (también aplica en reduced-motion)
     neuralBlend += (neuralTarget - neuralBlend) * Math.min(1, dt * 3);
-    if (towerLineMat) towerLineMat.opacity = 0.55 * (1 - neuralBlend);
-    if (towerCableMat) towerCableMat.opacity = 0.32 * (1 - neuralBlend);
+    towersBlend += (towersTarget - towersBlend) * Math.min(1, dt * 3);
+    if (towerLineMat) towerLineMat.opacity = 0.55 * (1 - neuralBlend) * towersBlend;
+    if (towerCableMat) towerCableMat.opacity = 0.32 * (1 - neuralBlend) * towersBlend;
     if (neuralNodeMat) neuralNodeMat.opacity = (0.32 + intensity * 0.5) * neuralBlend;
     if (corridorLineMat) corridorLineMat.opacity = (0.06 + intensity * 0.34) * neuralBlend;
 
@@ -371,6 +374,7 @@ window.GEScene = (function () {
   function setProgress(p) { targetProgress = Math.max(0, Math.min(1, p)); }
   function setPaused(p) { paused = !!p; }
   function setNeuralMode(v) { neuralTarget = Math.max(0, Math.min(1, v)); }
+  function setTowersMode(v) { towersTarget = Math.max(0, Math.min(1, v)); }
 
   // --- API para el panel de Tweaks ---
   function setIntensity(v) { targetIntensity = Math.max(0, Math.min(1, v)); }
@@ -387,5 +391,5 @@ window.GEScene = (function () {
     for (var i = 0; i < pulses.length; i++) { if (pulses[i].isLime) pulses[i].mesh.material.color.copy(accentColor); }
   }
 
-  return { init: init, setProgress: setProgress, setPaused: setPaused, setNeuralMode: setNeuralMode, setIntensity: setIntensity, setSway: setSway, setAccent: setAccent };
+  return { init: init, setProgress: setProgress, setPaused: setPaused, setNeuralMode: setNeuralMode, setTowersMode: setTowersMode, setIntensity: setIntensity, setSway: setSway, setAccent: setAccent };
 })();

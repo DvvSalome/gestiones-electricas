@@ -1,4 +1,4 @@
-﻿# Gestiones Eléctricas
+# Gestiones Eléctricas
 > Ingeniería eléctrica integral potenciada por IA: solar, eficiencia con IA, transmisión y alta tensión. Cumplimiento RETIE y NTC 2050. Barranquilla, Medellín, Bogotá.
 
 ## Main Pages
@@ -13,5 +13,5 @@
 
 ## Contact
 - Website: https://gestioneselectricas.com
-- Email: cotizacionesia2025@gmail.com
+- Email: servicios@gestioneselectricas.com
 - Telephone: +57 301 814 1027

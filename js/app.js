@@ -20,6 +20,9 @@
     });
     lang = l;
     localStorage.setItem('ge-lang', l);
+    if (window.GE_onLangChange) {
+      try { window.GE_onLangChange(l); } catch (e) {}
+    }
   }
   applyLang(lang);
   var toggle = doc.getElementById('lang-toggle');
@@ -109,6 +112,10 @@
       // En la sección de IA: ocultar torres y mostrar la malla neuronal.
       if (sceneOk && window.GEScene.setNeuralMode) {
         window.GEScene.setNeuralMode(sec.id === 'ia' ? 1 : 0);
+      }
+      // En la sección de proyectos (Dashboard): ocultar las torres.
+      if (sceneOk && window.GEScene.setTowersMode) {
+        window.GEScene.setTowersMode(sec.id === 'proyectos' ? 0 : 1);
       }
     }
 
@@ -511,7 +518,7 @@
             var mailBtn = doc.getElementById('cta-mail-btn');
             if (mailBtn) {
               var subject = 'Cotización · ' + tipo + ' · ' + nombre;
-              mailBtn.href = 'mailto:cotizacionesia2025@gmail.com?subject=' +
+              mailBtn.href = 'mailto:servicios@gestioneselectricas.com?subject=' +
                 encodeURIComponent(subject) + '&body=' + encodeURIComponent(lead);
             }
           }
@@ -526,6 +533,72 @@
       form.addEventListener('input', function (e) {
         var f = e.target.closest('.field'); if (f) f.classList.remove('invalid');
       });
+    }
+    /* ---------- modal del blog ---------- */
+    var blogModal = doc.getElementById('blog-modal');
+    var blogModalContent = doc.getElementById('blog-modal-content');
+    var blogModalClose = blogModal ? blogModal.querySelector('.blog-modal__close') : null;
+    var blogModalOverlay = blogModal ? blogModal.querySelector('.blog-modal__overlay') : null;
+    var activePostId = null;
+
+    if (blogModal && blogModalContent) {
+      var openModal = function (postId) {
+        var bodyKey = '';
+        if (postId === 'solar-barranquilla') bodyKey = 'blog.post1.body';
+        else if (postId === 'subestaciones-costa') bodyKey = 'blog.post2.body';
+        else if (postId === 'puesta-tierra') bodyKey = 'blog.post3.body';
+
+        if (bodyKey) {
+          var dict = (window.GE_I18N && window.GE_I18N[lang]) || {};
+          if (dict[bodyKey]) {
+            blogModalContent.innerHTML = dict[bodyKey];
+            blogModal.classList.add('is-open');
+            blogModal.setAttribute('aria-hidden', 'false');
+            activePostId = postId;
+            doc.body.style.overflow = 'hidden';
+            if (lenis) lenis.stop();
+          }
+        }
+      };
+
+      var closeModal = function () {
+        blogModal.classList.remove('is-open');
+        blogModal.setAttribute('aria-hidden', 'true');
+        activePostId = null;
+        doc.body.style.overflow = '';
+        if (lenis) lenis.start();
+      };
+
+      doc.querySelectorAll('.blog__card').forEach(function (card) {
+        card.addEventListener('click', function () {
+          var postId = card.getAttribute('data-post-id');
+          openModal(postId);
+        });
+      });
+
+      if (blogModalClose) blogModalClose.addEventListener('click', closeModal);
+      if (blogModalOverlay) blogModalOverlay.addEventListener('click', closeModal);
+
+      doc.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && blogModal.classList.contains('is-open')) {
+          closeModal();
+        }
+      });
+
+      // Reload the active post body when language changes
+      window.GE_onLangChange = function (newLang) {
+        if (activePostId) {
+          var bodyKey = '';
+          if (activePostId === 'solar-barranquilla') bodyKey = 'blog.post1.body';
+          else if (activePostId === 'subestaciones-costa') bodyKey = 'blog.post2.body';
+          else if (activePostId === 'puesta-tierra') bodyKey = 'blog.post3.body';
+          
+          var dict = (window.GE_I18N && window.GE_I18N[newLang]) || {};
+          if (bodyKey && dict[bodyKey]) {
+            blogModalContent.innerHTML = dict[bodyKey];
+          }
+        }
+      };
     }
 
     ScrollTrigger.refresh();

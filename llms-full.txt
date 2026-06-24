@@ -1,4 +1,4 @@
-﻿# Gestiones Eléctricas (Versión Completa)
+# Gestiones Eléctricas (Versión Completa)
 > Ingeniería eléctrica integral potenciada por IA: solar, eficiencia con IA, transmisión y alta tensión. Cumplimiento RETIE y NTC 2050. Barranquilla, Medellín, Bogotá.
 
 ## Descripción General
@@ -30,6 +30,6 @@ Gestiones Eléctricas es una firma de ingeniería en Colombia dedicada al ciclo 
 
 ## Contacto Comercial
 - Sitio web: https://gestioneselectricas.com
-- Correo: cotizacionesia2025@gmail.com
+- Correo: servicios@gestioneselectricas.com
 - Dirección principal: Barranquilla, Colombia (con cobertura nacional)
 - Teléfono / WhatsApp: +57 301 814 1027
