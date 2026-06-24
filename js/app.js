@@ -290,12 +290,19 @@
       if (mobileMode) {
         var curFrame = 0;
         var animId = null;
-        var animLoop = function() {
+        var fps = 24;
+        var fpsInterval = 1000 / fps;
+        var lastTime = performance.now();
+        var animLoop = function(currentTime) {
           if (!viajeActive) { animId = null; return; }
-          curFrame = (curFrame + 1) % flowFrameCount;
-          var img = flowFrames[curFrame];
-          if (img) drawFrame(flowCanvas, flowCtx, img);
           animId = requestAnimationFrame(animLoop);
+          var elapsed = currentTime - lastTime;
+          if (elapsed >= fpsInterval) {
+            lastTime = currentTime - (elapsed % fpsInterval);
+            curFrame = (curFrame + 1) % flowFrameCount;
+            var img = flowFrames[curFrame];
+            if (img) drawFrame(flowCanvas, flowCtx, img);
+          }
         };
 
         ScrollTrigger.create({
@@ -304,7 +311,10 @@
             viajeActive = self.isActive;
             if (window.GEAudio && sndOn) window.GEAudio.setAmbient(self.isActive ? 1 : 0);
             if (self.isActive) {
-              if (!animId) animLoop();
+              if (!animId) {
+                lastTime = performance.now();
+                animLoop(lastTime);
+              }
             }
           }
         });
@@ -368,12 +378,19 @@
       if (mobileMode) {
         var curIaFrame = 0;
         var iaAnimId = null;
-        var iaAnimLoop = function() {
+        var iaFps = 24;
+        var iaFpsInterval = 1000 / iaFps;
+        var lastIaTime = performance.now();
+        var iaAnimLoop = function(currentTime) {
           if (!iaActive) { iaAnimId = null; return; }
-          curIaFrame = (curIaFrame + 1) % iaFrameCount;
-          var img = iaFrames[curIaFrame];
-          if (img) drawFrame(iaCanvas, iaCtx, img);
           iaAnimId = requestAnimationFrame(iaAnimLoop);
+          var elapsed = currentTime - lastIaTime;
+          if (elapsed >= iaFpsInterval) {
+            lastIaTime = currentTime - (elapsed % iaFpsInterval);
+            curIaFrame = (curIaFrame + 1) % iaFrameCount;
+            var img = iaFrames[curIaFrame];
+            if (img) drawFrame(iaCanvas, iaCtx, img);
+          }
         };
 
         ScrollTrigger.create({
@@ -381,7 +398,10 @@
           onToggle: function (self) {
             iaActive = self.isActive;
             if (self.isActive) {
-              if (!iaAnimId) iaAnimLoop();
+              if (!iaAnimId) {
+                lastIaTime = performance.now();
+                iaAnimLoop(lastIaTime);
+              }
             }
           }
         });

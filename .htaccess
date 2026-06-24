@@ -1,0 +1,27 @@
+# ==============================================================================
+# Gestiones Eléctricas — Redirecciones SEO (2026-06-23)
+# Redirige de manera limpia (301) las páginas antiguas de WordPress a
+# las secciones correspondientes en la nueva landing page estática.
+# ==============================================================================
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# Redirecciones 301 de páginas de base de datos
+RewriteRule ^asesoria-regulatoria/?$ /#ia [NE,R=301,L]
+RewriteRule ^servicios-energeticos/?$ /#soluciones [NE,R=301,L]
+RewriteRule ^diseno-de-infraestructura-y-montajes-electricos/?$ /#servicios [NE,R=301,L]
+RewriteRule ^mantenimiento/?$ /#servicios [NE,R=301,L]
+RewriteRule ^medida/?$ /#servicios [NE,R=301,L]
+RewriteRule ^consultoria/?$ /#servicios [NE,R=301,L]
+RewriteRule ^construccion/?$ /#servicios [NE,R=301,L]
+RewriteRule ^diseno/?$ /#servicios [NE,R=301,L]
+RewriteRule ^energia-solar/?$ /#servicios [NE,R=301,L]
+RewriteRule ^pruebas-y-mediciones-electricas/?$ /#servicios [NE,R=301,L]
+RewriteRule ^contacto/?$ /#contacto [NE,R=301,L]
+RewriteRule ^contactanos/?$ /#contacto [NE,R=301,L]
+RewriteRule ^enviar-factura/?$ /#contacto [NE,R=301,L]
+RewriteRule ^blog/?$ / [R=301,L]
+
+</IfModule>
