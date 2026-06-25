@@ -1,5 +1,5 @@
 # Gestiones Eléctricas
-> Ingeniería eléctrica integral potenciada por IA: solar, eficiencia con IA, transmisión y alta tensión. Cumplimiento RETIE y NTC 2050. Barranquilla, Medellín, Bogotá.
+> Firma colombiana de ingeniería eléctrica de potencia (B2B/industrial) que aplica IA al ciclo del activo: mantenimiento predictivo con machine learning (DGA, termografía, vibración), simulación predictiva en ETAP, gemelo digital de subestaciones y monitoreo en tiempo real. Solar (Ley 1715), alta tensión y automatización. Cumplimiento RETIE/NTC 2050. Barranquilla, Medellín, Bogotá.
 
 ## Main Pages
 - [IA](https://gestioneselectricas.com/#ia): Detalles sobre cómo aplicamos la IA en el modelado, simulación y monitoreo en tiempo real de sistemas eléctricos.

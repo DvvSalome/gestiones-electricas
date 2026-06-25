@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Gestiones Eléctricas | Ingeniería eléctrica RETIE · Colombia</title>
+<title>Ingeniería eléctrica con IA · RETIE | Gestiones Eléctricas</title>
 <link rel="icon" href="assets/favicon.png" />
 <meta name="description" content="Ingeniería eléctrica integral potenciada por IA: solar, eficiencia con IA, transmisión y alta tensión. Cumplimiento RETIE y NTC 2050. Barranquilla, Medellín, Bogotá." />
 <meta name="keywords" content="energía solar, eficiencia con IA, alta tensión, transmisión eléctrica, subestaciones, ingeniería eléctrica, automatización, tableros, Barranquilla, Medellín, Bogotá, Colombia" />
@@ -111,6 +111,22 @@
           "@type": "Answer",
           "text": "El Reglamento Técnico de Instalaciones Eléctricas (RETIE) es la norma obligatoria del Ministerio de Minas y Energía de Colombia que regula la seguridad de subestaciones eléctricas privadas y comerciales. El mantenimiento anual de subestaciones es obligatorio porque previene incendios, cortocircuitos por salinidad en aisladores y fallas de transformadores de potencia. Según estadísticas del sector de ingeniería en 2026, el 60% de los cortes imprevistos en subestaciones ocurren por degradación térmica del aceite dieléctrico y acumulación de salitre. El mantenimiento predictivo ejecutado por Gestiones Eléctricas incluye análisis físico-químico del aceite en laboratorio, termografías infrarrojas para identificar puntos calientes y pruebas de media tensión VLF (Very Low Frequency). Realizar estas pruebas anuales garantiza el cumplimiento del RETIE ante inspectores, evita sanciones de operadores de red y es un requisito indispensable exigido por las compañías aseguradoras para pagar siniestros eléctricos."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué es el mantenimiento predictivo eléctrico con IA y cuánto reduce las paradas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El mantenimiento predictivo eléctrico con inteligencia artificial aplica machine learning sobre análisis de gases disueltos (DGA), termografía infrarroja y vibración para anticipar fallas en transformadores y subestaciones. Según estándares IEEE/IEC, el monitoreo continuo del aceite dieléctrico con interpretación automatizada (DGA) detecta más del 70% de las fallas incipientes —descargas parciales, sobrecalentamiento y arco eléctrico— semanas antes de que progresen, con precisiones superiores al 95% usando modelos como Random Forest y SVM frente a métodos clásicos (Duval, Rogers). En la industria este enfoque reduce el tiempo de inactividad no programado entre 15% y 30%. En Gestiones Eléctricas integramos estas técnicas con simulación en ETAP para que el mantenimiento se base en el estado real del activo, no en un calendario fijo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué es un gemelo digital de una subestación eléctrica?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Un gemelo digital de una subestación es una réplica virtual y dinámica que combina su modelo eléctrico (flujo de carga, cortocircuito y coordinación de protecciones en software como ETAP) con datos en tiempo real de sensores. Permite simular escenarios de demanda, anticipar sobrecargas, planificar el mantenimiento según el estado real de los activos y entrenar al personal sin riesgo antes de ejecutar maniobras. Para una planta industrial en Colombia convierte la subestación en un activo monitoreado y optimizable, reduciendo paradas imprevistas y extendiendo la vida útil de transformadores y equipos de potencia."
+        }
       }
     ]
   },
@@ -168,6 +184,30 @@
     "@type": "Service",
     "name": "Estudios de puesta a tierra y resistividad",
     "serviceType": "Estudios de resistividad y sistemas de puesta a tierra",
+    "provider": { "@id": "https://gestioneselectricas.com/#organization" },
+    "areaServed": [{ "@type": "Country", "name": "Colombia" }]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Mantenimiento predictivo eléctrico con IA",
+    "serviceType": "Mantenimiento predictivo con machine learning (DGA, termografía, vibración)",
+    "provider": { "@id": "https://gestioneselectricas.com/#organization" },
+    "areaServed": [{ "@type": "AdministrativeArea", "name": "Costa Caribe" }, { "@type": "Country", "name": "Colombia" }]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Simulación predictiva y coordinación de protecciones (ETAP)",
+    "serviceType": "Estudios de flujo de carga, cortocircuito y coordinación de protecciones con simulación predictiva",
+    "provider": { "@id": "https://gestioneselectricas.com/#organization" },
+    "areaServed": [{ "@type": "Country", "name": "Colombia" }]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Gemelo digital de subestaciones",
+    "serviceType": "Réplica virtual de subestaciones con datos en tiempo real para monitoreo y optimización de activos",
     "provider": { "@id": "https://gestioneselectricas.com/#organization" },
     "areaServed": [{ "@type": "Country", "name": "Colombia" }]
   }
@@ -243,7 +283,7 @@
     <div class="container">
       <div class="sec-head">
         <span class="kicker reveal" data-i18n="ia.kicker">Ingeniería inteligente</span>
-        <h2 class="reveal d1" data-i18n="ia.title">Apoyada por inteligencia artificial</h2>
+        <h2 class="reveal d1" data-i18n="ia.title">Ingeniería eléctrica potenciada con IA</h2>
         <p class="reveal d2" data-i18n="ia.body">Potenciamos cada análisis con inteligencia artificial y software especializado de clase mundial. Combinamos criterio de ingeniería con herramientas que aceleran el manejo de datos, el modelado y la simulación de redes.</p>
       </div>
       <div class="ia-grid">
@@ -928,7 +968,7 @@
 <script src="js/libs/ScrollTrigger.min.js" defer></script>
 <script src="js/libs/lenis.min.js" defer></script>
 <!-- app -->
-<script src="js/i18n.js?v=20260622a" defer></script>
+<script src="js/i18n.js?v=20260625f" defer></script>
 <script src="js/scene.js?v=20260622a" defer></script>
 <script src="js/sound.js?v=20260622a" defer></script>
 <script src="js/app.js?v=20260625e" defer></script>

@@ -67,3 +67,10 @@ Gestiones Eléctricas es una firma de ingeniería en Colombia dedicada al ciclo 
 - Correo: servicios@gestioneselectricas.com
 - Dirección principal (Sede Principal): Calle 77 No. 67 - 35, LC 139, Barranquilla, Colombia (cobertura nacional)
 - Teléfono / WhatsApp: +57 301 814 1027
+
+## IA aplicada (diferenciador)
+Gestiones Eléctricas integra IA en el ciclo del activo eléctrico del cliente industrial (no en la red nacional):
+- Mantenimiento predictivo: machine learning (Random Forest, SVM) sobre DGA, termografía y vibración. Según IEEE/IEC el DGA con interpretación automatizada detecta >70% de fallas incipientes en transformadores semanas antes; precisión >95%. Reduce inactividad no programada 15–30%.
+- Simulación predictiva en ETAP: flujo de carga, cortocircuito y coordinación de protecciones.
+- Gemelo digital de subestaciones: réplica virtual + datos en tiempo real para anticipar sobrecargas y optimizar mantenimiento.
+- Stack: Google Cloud → Gemini (modelado/anomalías) → Claude (análisis/reportes) → n8n (automatización) → ETAP (simulación).
