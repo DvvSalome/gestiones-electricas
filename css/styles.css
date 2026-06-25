@@ -1034,3 +1034,9 @@ section{position:relative;padding:clamp(90px,13vh,160px) 0}
 }
 
 
+
+/* Móvil: scroll nativo (Lenis off) — fluido + anchors con smooth nativo y offset del header */
+@media (max-width:720px),(pointer:coarse){
+  html{scroll-behavior:smooth}
+  section[id]{scroll-margin-top:72px}
+}
