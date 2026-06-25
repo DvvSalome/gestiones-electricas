@@ -566,7 +566,7 @@ section{position:relative;padding:clamp(90px,13vh,160px) 0}
     height:100vh;
     object-fit:cover;
     z-index:0;
-    filter:brightness(0.38) saturate(0.85);
+    filter:brightness(0.22) saturate(0.8);
   }
   .drive__overlay{
     grid-area:1 / 1 / 2 / 2;
@@ -588,6 +588,7 @@ section{position:relative;padding:clamp(90px,13vh,160px) 0}
   }
   .drive__stage{position:relative;left:auto;bottom:auto;opacity:1;transform:none}
   .drive__stage h3, .drive__stage p, .drive__stage .si{text-shadow:0 2px 8px rgba(0,0,0,0.85)}
+  #ia-viaje .drive__stage{background:rgba(8,10,8,.58);border:1px solid rgba(199,229,47,.13);border-radius:16px;padding:16px 18px;-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
   .drive__rail{display:none}
   .hero__inner::before,
   .about__text::before,
