@@ -5,3 +5,5 @@ node_modules/
 lighthouse-report*
 dev-old-site/
 *.tar.gz
+.agents/.venv/
+scratch/

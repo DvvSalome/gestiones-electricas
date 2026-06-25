@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" class="js">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Smart meters, blockchain and artificial intelligence | Gestiones Eléctricas Blog</title>
+<link rel="icon" href="../../assets/favicon.png" />
+<meta name="description" content="In recent months there has been discussion about replacing the meters with a new smart system. However, the discussion has focused on equipment cos..." />
+<meta name="theme-color" content="#0A0A0A" />
+<meta name="author" content="Engineering Department — Gestiones Eléctricas" />
+<meta name="robots" content="index, follow" />
+
+<!-- Geo Tags (Local SEO) -->
+<meta name="geo.region" content="CO-ATL" />
+<meta name="geo.placename" content="Barranquilla" />
+<meta name="geo.position" content="11.0084;-74.8143" />
+<meta name="ICBM" content="11.0084, -74.8143" />
+<link rel="canonical" href="https://gestioneselectricas.com/blog/en/medidores-inteligentes-ia.html" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Gestiones Eléctricas" />
+<meta property="og:title" content="Smart meters, blockchain and artificial intelligence | Gestiones Eléctricas Blog" />
+<meta property="og:description" content="In recent months there has been discussion about replacing the meters with a new smart system. However, the discussion has focused on equipment cos..." />
+<meta property="og:image" content="https://gestioneselectricas.com/assets/dashboard.webp" />
+<meta property="og:image:alt" content="Smart meters, blockchain and artificial intelligence" />
+<meta property="og:url" content="https://gestioneselectricas.com/blog/en/medidores-inteligentes-ia.html" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="es_CO" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Smart meters, blockchain and artificial intelligence | Gestiones Eléctricas Blog" />
+<meta name="twitter:description" content="In recent months there has been discussion about replacing the meters with a new smart system. However, the discussion has focused on equipment cos..." />
+<meta name="twitter:image" content="https://gestioneselectricas.com/assets/dashboard.webp" />
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../css/styles.css?v=20260624c" />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Smart meters, blockchain and artificial intelligence",
+  "description": "In recent months there has been discussion about replacing the meters with a new smart system. However, the discussion has focused on equipment cos...",
+  "image": "https://gestioneselectricas.com/assets/dashboard.webp",
+  "datePublished": "2026-09-28T08:00:00Z",
+  "dateModified": "2026-09-28T08:00:00Z",
+  "author": {
+    "@type": "Organization",
+    "name": "Engineering Department — Gestiones Eléctricas",
+    "url": "https://gestioneselectricas.com"
+  },
+  "publisher": {
+    "@type": "ElectricalContractor",
+    "name": "Gestiones Eléctricas",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://gestioneselectricas.com/assets/logo.svg"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://gestioneselectricas.com/blog/en/medidores-inteligentes-ia.html"
+  }
+}
+</script>
+
+<style>
+.article-container {
+  margin-top: 120px;
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 2;
+}
+.article-header {
+  margin-bottom: 2.5rem;
+}
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: "DM Mono", monospace;
+  font-size: 0.82rem;
+  color: var(--muted-2);
+  margin-top: 1rem;
+}
+.author-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 1.5rem;
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  max-width: fit-content;
+}
+.author-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--lime);
+  color: #0A0A0A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: "DM Sans", sans-serif;
+}
+.author-info h4 {
+  font-size: 0.9rem;
+  color: #fff;
+  margin: 0;
+}
+.author-info p {
+  font-size: 0.78rem;
+  color: var(--muted-2);
+  margin: 0;
+}
+.article-featured-img {
+  width: 100%;
+  aspect-ratio: 21/9;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+.article-content {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+}
+.article-content p {
+  margin-bottom: 1.6rem;
+  font-size: 1.1rem;
+  max-width: 78ch;
+}
+.article-content h3, .article-content h4 {
+  color: #fff;
+  margin-top: 2.5rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.2;
+}
+.article-content h3 { font-size: 1.7rem; }
+.article-content h4 { font-size: 1.3rem; }
+.article-content ul, .article-content ol {
+  margin-bottom: 1.6rem;
+  padding-left: 1.5rem;
+}
+.article-content li {
+  margin-bottom: 0.6rem;
+  max-width: 74ch;
+}
+.article-content blockquote {
+  border-left: 3px solid var(--lime);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: var(--white);
+}
+.article-content hr {
+  border: none;
+  height: 1px;
+  background: var(--line);
+  margin: 2.5rem 0;
+}
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "DM Mono", monospace;
+  font-size: 0.88rem;
+  color: var(--lime);
+  text-decoration: none;
+  margin-bottom: 2rem;
+  transition: transform 0.2s;
+}
+.back-btn:hover {
+  transform: translateX(-4px);
+}
+.article-cta {
+  margin-top: 4rem;
+  padding: 3rem;
+  text-align: center;
+  background: radial-gradient(circle at top, rgba(199,229,47,0.06) 0%, rgba(6,7,7,0) 70%);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+}
+.article-cta h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+.article-cta p {
+  margin: 0 auto 1.5rem;
+}
+</style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div id="scene-veil" style="opacity: 0.45;"></div>
+
+<header class="nav" id="nav">
+  <a class="nav__logo" href="../../index.html#hero" aria-label="Gestiones Eléctricas">
+    <img src="../../assets/logo.svg" alt="Gestiones Eléctricas" />
+  </a>
+  <nav class="nav__links" id="nav-links">
+    <a href="../../index.html#ia">AI</a>
+    <a href="../../index.html#nosotros">About Us</a>
+    <a href="../../index.html#soluciones">Solutions</a>
+    <a href="../../index.html#servicios">Services</a>
+    <a href="../../index.html#sedes">Offices</a>
+    <a href="../../index.html#proyectos">Projects</a>
+    <a href="../../blog.html" class="is-active">Blog</a>
+  </nav>
+  <div class="nav__actions">
+    <a href="../medidores-inteligentes-ia.html" class="btn btn--secondary" style="font-size:0.85rem;padding:4px 10px;border:1px solid var(--line)" id="lang-btn">ES</a>
+    <a href="../../index.html#contacto" class="btn btn--lime">Quote</a>
+  </div>
+</header>
+
+<main class="page">
+  <div class="container article-container">
+    <a href="../../blog.html" class="back-btn">← Back to blog</a>
+    
+    <article class="panel" style="padding: clamp(24px, 5vw, 64px);">
+      <header class="article-header">
+        <span class="mono" style="color:var(--lime)">Energy Efficiency · BOGOTA</span>
+        <h1 style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; margin-top: 0.8rem; color:#fff">Smart meters, blockchain and artificial intelligence</h1>
+        
+        <div class="article-meta">
+          <span>5 MIN READ</span>
+          <span>·</span>
+          <span>Published: September 28, 2026</span>
+        </div>
+        
+        <div class="author-box">
+          <div class="author-avatar">GE</div>
+          <div class="author-info">
+            <h4>Engineering Department</h4>
+            <p>Gestiones Eléctricas SAS</p>
+          </div>
+        </div>
+      </header>
+      
+      <img src="../../assets/dashboard.webp" alt="Smart meters, blockchain and artificial intelligence" class="article-featured-img" />
+      
+      <div class="article-content">
+        <div class="aeo-summary-card" style="padding: 1.5rem; background: rgba(199,229,47,0.04); border: 1px solid rgba(199,229,47,0.3); border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid var(--lime);"><p style="font-size: 0.98rem; line-height: 1.6; color: var(--white); margin: 0; max-width: 100%;"><strong style="color: var(--lime); font-family: 'DM Sans', sans-serif; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">Executive Summary:</strong> How do smart meters with AI and blockchain transform the grid? These technologies allow real-time bidirectional reading of consumption, enabling automated sales of solar energy surpluses (Net Metering). Artificial intelligence processes this information to predict demand spikes and optimize electrical load distribution in businesses and homes.</p></div>
+<strong>In recent months there has been discussion about replacing the meters with a new smart system. However, the discussion has focused on equipment costs, data privacy and the political way of doing this replacement, leaving out one of the most important aspects of this reform, the possibility that technologies can help us improve the way we manage energy and make it cleaner, cheaper and more flexible.</strong>
+
+<strong>This article will explain how blockchain and Artificial Intelligence (AI) can make the generation and consumption market through self-management and regulatory changes make it a reality that our energy comes from clean sources from our own photovoltaic energy or from a neighbor, or from a power plant that we choose, or we can store it and use it in an electric car taking advantage of the best prices through a spot market for the purchase and sale of energy.</strong>We are on the verge of one of the most important technological changes regarding electrical distribution networks and how we buy energy; The power meter is the key to making this happen. The definition of how information is measured and processed is the key to generating a 4.0 market for the generation and consumption of electrical energy. The role of the State through the Ministry of Energy and its technical organizations must clearly define the guidelines of the equipment that will measure our energy, making efficient use of information for the purchase and sale of this through a supercomputer with information and decisions in a distributed manner, generating an “awareness” of the electrical networks that can be self-managed in real time.
+
+The above sounds like a science fiction movie, but it is the most real thing I can write since there is indeed the technological capacity and equipment to do it. We have two great allies to transform the electrical networks and I hope that we do not get trapped in the use of equipment that was designed to continue in a market model where distribution companies own everyone's energy decisions.
+
+The low costs of energy measurement technologies, added to their computing power and Internet speed, will sooner or later lead us to transform energy information into energy vectors traced by blockchain and managed through a virtual electrical coordinator with artificial intelligence.
+
+Energy measurement plays a fundamental role when implementing business models where users can buy their energy from generation plants directly, defining a space of interaction such as electrical networks. This liberalization of the energy market in homes and companies has to go hand in hand with a network development model that allows it to adapt to the needs of demand. This process can be gradual and to the extent that the markets can satisfy this demand based on an informed supply.
+
+Electrical networks currently operate under a strictly regulated model that is adverse to change, so it is urgently required to review this from a modern perspective and in accordance with current technologies, taking a look at the future at least in the development of the market in the next 10 years. For example, stopping the injections of photovoltaic energy from distributed generation facilities, imposing energy meters that cannot be self-managed, prolonging the generator and consumer model as if it were an assured business only for companies that currently exist. These are the issues that prevent the development of this new consciousness of electrical networks. To do things differently, you have to think differently.<strong>The power of the consumer to change the energy matrix</strong>The blockchain allows energy to be traced from the origin of energy generation and can be carried out for the purchase of blocks and micro blocks of energy, with which agreements between a consumer and a generator can be made through a digital platform, where the price of energy is defined and agreed, how much power and energy is needed at different times of the day, days of the week and even schedule vacations to change to a consumption plan that is convenient. This is a new concept, but one that European energy markets have been using for years. Energy meters allow you to manage this type of information, coupled with the gentle attention of an AI that facilitates this purchase under different changes in the condition of the energy spot market. We can prefer renewable energy from a 100MW photovoltaic plant or buy the surplus from our neighbor who has 2kW in solar panels through a smart and conscious meter.<strong>And can we sell energy from our homes and businesses?</strong>Of course, having an AI that manages self-consumption, energy storage and injections into the electrical grid resulting from the generation of solar energy or other renewable sources that we have for sale, will be possible. The blockchain certifies all the data generated and transferred through “smart contracts” and AI will help us optimize the purchase/sale of energy for its efficient and economic use.
+      </div>
+      
+      <div class="article-cta">
+        <h3>Need expert consulting or maintenance for your network?</h3>
+        <p>Talk with our engineering team to design a customized solution, ensuring safety, AI-driven efficiency, and RETIE standard compliance.</p>
+        <a href="../../index.html#contacto" class="btn btn--lime">Let's Discuss your Project</a>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="../../assets/logo.svg" alt="Gestiones Eléctricas" />
+        <small>Comprehensive electrical solutions</small>
+        <small class="footer__sedes" style="display:block;color:var(--muted-2);font-size:.82rem;margin-top:4px">Offices: Barranquilla · Medellín · Bogotá</small>
+        <small class="footer__brochure" style="display:block;margin-top:8px">
+          <a href="../../assets/GE-Brochure_compressed.pdf" target="_blank" rel="noopener" style="color:var(--lime);border-bottom:1px solid rgba(199,229,47,0.3);padding-bottom:1px">View Corporate Brochure (PDF)</a>
+        </small>
+      </div>
+      <div class="footer__contact">
+        <a href="mailto:servicios@gestioneselectricas.com">servicios@gestioneselectricas.com</a>
+        <a href="tel:+573018141027">+57 301 814 1027</a>
+      </div>
+      <div class="socials">
+        <a href="https://instagram.com/gestioneselectricassas" target="_blank" rel="noopener" aria-label="Instagram"><img src="../../assets/instagram.svg" alt="Instagram" /></a>
+        <a href="https://www.facebook.com/gestioneselectricassas" target="_blank" rel="noopener" aria-label="Facebook"><img src="../../assets/facebook.svg" alt="Facebook" /></a>
+        <a href="https://wa.me/573018141027" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="../../assets/whatsapp.svg" alt="WhatsApp" /></a>
+        <a href="https://x.com/" target="_blank" rel="noopener" aria-label="X (Twitter)"><img src="../../assets/twitter.svg" alt="X" /></a>
+      </div>
+    </div>
+    <div class="footer__legal">
+      © 2026 Gestiones Eléctricas · All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/three@0.137.0/build/three.min.js" defer></script>
+<script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="../../js/scene.js?v=20260624" defer></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Initialize background WebGL scene
+  var canvas = document.getElementById('bg-canvas');
+  var sceneOk = false;
+  try { sceneOk = window.GEScene && window.GEScene.init(canvas); } catch (e) { sceneOk = false; }
+  if (sceneOk) {
+    if (window.GEScene.setIntensity) window.GEScene.setIntensity(0.15);
+    if (window.GEScene.setNeuralMode) window.GEScene.setNeuralMode(0);
+    if (window.GEScene.setTowersMode) window.GEScene.setTowersMode(0); // hide towers for clean reading
+    if (window.GEScene.setPaused) window.GEScene.setPaused(false);
+  } else if (canvas) {
+    canvas.style.display = 'none';
+    document.body.style.background = 'radial-gradient(120% 90% at 50% 0%, #0f120a 0%, #060707 60%)';
+  }
+  
+  // Year in footer
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+});
+</script>
+</body>
+</html>

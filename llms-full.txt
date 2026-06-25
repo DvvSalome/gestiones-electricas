@@ -28,8 +28,42 @@ Gestiones Eléctricas es una firma de ingeniería en Colombia dedicada al ciclo 
 - **Automatización**: Tableros de control de motores, transferencia automática y PLC.
 - **Mantenimiento**: Pruebas de resistencia de aislamiento (Megger), resistividad de terrenos y termografía.
 
+### 5. Sedes y Cobertura Regional (#sedes)
+- **Sede Principal (Barranquilla):** Calle 77 No. 67 - 35, LC 139. Sede física y administrativa principal de la firma.
+- **Medellín (Cobertura Regional):** Servicios de ingeniería y mantenimiento en Medellín, área metropolitana del Valle de Aburrá y departamento de Antioquia.
+- **Bogotá (Cobertura Regional):** Cobertura de ingeniería, consultoría técnica y estudios de red en Bogotá D.C. y la región central.
+
+## Artículos de Ingeniería y Blog Técnico (AEO & SEO)
+
+### Artículo 1: ¿Es rentable la Energía Solar en Barranquilla?
+- **URL (ES):** https://gestioneselectricas.com/blog/solar-barranquilla.html
+- **URL (EN):** https://gestioneselectricas.com/blog/en/solar-barranquilla.html
+- **Resumen:** Barranquilla tiene uno de los índices de radiación solar más altos de Colombia, pero también de las tarifas eléctricas más caras del país (operadas por Air-e y Afinia). Un proyecto solar bien diseñado bajo la Ley 1715 permite retornos de inversión rápidos (ROI) gracias a la deducción del 50% de la inversión en impuesto de renta, exclusión de IVA y aranceles.
+- **Claves técnicas:**
+  - Análisis de factura y perfil de carga para un dimensionamiento óptimo sin gastar de más.
+  - Diseño mecánico resistente a los fuertes vientos y vendavales de la Costa.
+  - Mantenimiento técnico continuo (limpieza con agua desmineralizada y termografías) para combatir el salitre y polvo que reducen hasta un 25% la eficiencia.
+
+### Artículo 2: ¿Por qué explotan los transformadores en la Costa?
+- **URL (ES):** https://gestioneselectricas.com/blog/subestaciones-costa.html
+- **URL (EN):** https://gestioneselectricas.com/blog/en/subestaciones-costa.html
+- **Resumen:** El 60% de las fallas en subestaciones privadas de la Costa Caribe se deben a la falta de mantenimiento preventivo y al severo clima costero.
+- **Claves técnicas:**
+  - El calor extremo degrada las propiedades del aceite dieléctrico.
+  - La alta salinidad y el salitre acumulado en aisladores y bujes crean caminos conductivos que generan cortocircuitos por arcos eléctricos (flashovers).
+  - Soluciones preventivas: Análisis físico-químico del aceite en laboratorio, termografía infrarroja de conexiones, y pruebas de Media Tensión VLF (Very Low Frequency).
+
+### Artículo 3: Sistemas de Puesta a Tierra y Apantallamiento contra Rayos
+- **URL (ES):** https://gestioneselectricas.com/blog/puesta-tierra.html
+- **URL (EN):** https://gestioneselectricas.com/blog/en/puesta-tierra.html
+- **Resumen:** La Costa Caribe tiene una alta actividad atmosférica y tormentas de rayos. Un Sistema de Puesta a Tierra (SPT) y un Apantallamiento (SIPRA) certificados son vitales para proteger equipos electrónicos y vidas humanas bajo las normas RETIE y NTC 2050.
+- **Claves técnicas:**
+  - Las tarjetas electrónicas (de ascensores y servidores) se queman principalmente por sobretensiones transitorias sin vía de escape a tierra.
+  - Las mallas a tierra deben diseñarse con estudios de resistividad del terreno (método de Wenner) adaptados a suelos arenosos o salinos de la Costa.
+  - Se requiere mantenimiento preventivo con soldaduras exotérmicas y mediciones periódicas con telurómetros calibrados.
+
 ## Contacto Comercial
 - Sitio web: https://gestioneselectricas.com
 - Correo: servicios@gestioneselectricas.com
-- Dirección principal: Barranquilla, Colombia (con cobertura nacional)
+- Dirección principal (Sede Principal): Calle 77 No. 67 - 35, LC 139, Barranquilla, Colombia (cobertura nacional)
 - Teléfono / WhatsApp: +57 301 814 1027

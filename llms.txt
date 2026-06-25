@@ -9,9 +9,11 @@
 - [La red](https://gestioneselectricas.com/#red): Detalles sobre el monitoreo y control de líneas y subestaciones eléctricas.
 - [Viaje](https://gestioneselectricas.com/#viaje): Recorrido interactivo animado que muestra el flujo de la energía.
 - [Proyectos](https://gestioneselectricas.com/#proyectos): Demostración en vivo de tableros de control y KPIs operativos.
+- [Sedes](https://gestioneselectricas.com/#sedes): Presencia física y cobertura regional en Barranquilla (Sede Principal), Medellín y Bogotá.
 - [Cotizar](https://gestioneselectricas.com/#contacto): Formulario de contacto directo para cotizaciones e información de proyectos.
 
 ## Contact
 - Website: https://gestioneselectricas.com
 - Email: servicios@gestioneselectricas.com
 - Telephone: +57 301 814 1027
+- Address: Calle 77 No. 67 - 35, LC 139, Barranquilla, Colombia (Sede Principal)

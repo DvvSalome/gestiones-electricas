@@ -22,6 +22,20 @@ RewriteRule ^pruebas-y-mediciones-electricas/?$ /#servicios [NE,R=301,L]
 RewriteRule ^contacto/?$ /#contacto [NE,R=301,L]
 RewriteRule ^contactanos/?$ /#contacto [NE,R=301,L]
 RewriteRule ^enviar-factura/?$ /#contacto [NE,R=301,L]
-RewriteRule ^blog/?$ / [R=301,L]
+RewriteRule ^blog/?$ /blog.html [R=301,L]
 
+</IfModule>
+
+# ==============================================================================
+# Security Headers (GEO/SEO Optimization)
+# ==============================================================================
+<IfModule mod_headers.c>
+    # Prevent MIME-sniffing
+    Header set X-Content-Type-Options "nosniff"
+    # Prevent clickjacking
+    Header set X-Frame-Options "SAMEORIGIN"
+    # Referrer Policy
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    # HSTS (Enable HSTS for HTTPS connections)
+    Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
 </IfModule>

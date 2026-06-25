@@ -243,7 +243,7 @@ window.GEScene = (function () {
     renderer.setSize(W, H, false);
     // En móvil/táctil, pixelRatio 1 (la alta densidad no se nota y alivia GPU+batería).
     var smallScreen = W <= 720 || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
-    renderer.setPixelRatio(smallScreen ? 1 : Math.min(window.devicePixelRatio, 1.5));
+    renderer.setPixelRatio(smallScreen ? 1 : Math.min(window.devicePixelRatio, 1.25));
     camera.aspect = W / H;
     camera.updateProjectionMatrix();
   }
@@ -340,7 +340,7 @@ window.GEScene = (function () {
   function init(canvas) {
     if (!window.THREE) { console.warn('THREE no disponible'); return false; }
     try {
-      renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: false, powerPreference: 'high-performance' });
+      renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: false, alpha: false, powerPreference: 'high-performance' });
     } catch (e) { console.warn('WebGL no disponible', e); return false; }
     renderer.setClearColor(0x060707, 1);
     scene = new THREE.Scene();
