@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Gestiones Eléctricas | Ingeniería eléctrica con IA · RETIE | Colombia</title>
+<title>Gestiones Eléctricas | Ingeniería eléctrica RETIE · Colombia</title>
 <link rel="icon" href="assets/favicon.png" />
 <meta name="description" content="Ingeniería eléctrica integral potenciada por IA: solar, eficiencia con IA, transmisión y alta tensión. Cumplimiento RETIE y NTC 2050. Barranquilla, Medellín, Bogotá." />
 <meta name="keywords" content="energía solar, eficiencia con IA, alta tensión, transmisión eléctrica, subestaciones, ingeniería eléctrica, automatización, tableros, Barranquilla, Medellín, Bogotá, Colombia" />
@@ -38,7 +38,14 @@
   {
     "@context": "https://schema.org",
     "@type": "ElectricalContractor",
+    "@id": "https://gestioneselectricas.com/#organization",
     "name": "Gestiones Eléctricas",
+    "foundingDate": "2026",
+    "founder": {
+      "@type": "Person",
+      "name": "Adrián Garzón",
+      "jobTitle": "Ingeniero Electricista · COPNIA"
+    },
     "description": "Ingeniería eléctrica integral: energía solar, eficiencia con IA, transmisión y alta tensión, automatización y mantenimiento en Barranquilla, Medellín y Bogotá.",
     "url": "https://gestioneselectricas.com/",
     "logo": "https://gestioneselectricas.com/assets/logo.svg",
@@ -112,6 +119,63 @@
         }
       }
     ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://gestioneselectricas.com/#website",
+    "url": "https://gestioneselectricas.com/",
+    "name": "Gestiones Eléctricas",
+    "inLanguage": "es-CO",
+    "publisher": { "@id": "https://gestioneselectricas.com/#organization" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Diseño e instalación eléctrica RETIE",
+    "serviceType": "Diseño e ingeniería eléctrica",
+    "provider": { "@id": "https://gestioneselectricas.com/#organization" },
+    "areaServed": [{ "@type": "AdministrativeArea", "name": "Barranquilla" }, { "@type": "Country", "name": "Colombia" }]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Energía solar fotovoltaica (Ley 1715)",
+    "serviceType": "Energía solar fotovoltaica",
+    "provider": { "@id": "https://gestioneselectricas.com/#organization" },
+    "areaServed": [{ "@type": "AdministrativeArea", "name": "Atlántico" }, { "@type": "Country", "name": "Colombia" }]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Subestaciones y alta tensión",
+    "serviceType": "Subestaciones eléctricas de alta tensión",
+    "provider": { "@id": "https://gestioneselectricas.com/#organization" },
+    "areaServed": [{ "@type": "AdministrativeArea", "name": "Costa Caribe" }, { "@type": "Country", "name": "Colombia" }]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Mantenimiento de subestaciones",
+    "serviceType": "Mantenimiento predictivo de subestaciones (termografía, pruebas VLF)",
+    "provider": { "@id": "https://gestioneselectricas.com/#organization" },
+    "areaServed": [{ "@type": "AdministrativeArea", "name": "Barranquilla" }, { "@type": "Country", "name": "Colombia" }]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Automatización industrial",
+    "serviceType": "Automatización y control industrial",
+    "provider": { "@id": "https://gestioneselectricas.com/#organization" },
+    "areaServed": [{ "@type": "Country", "name": "Colombia" }]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Estudios de puesta a tierra y resistividad",
+    "serviceType": "Estudios de resistividad y sistemas de puesta a tierra",
+    "provider": { "@id": "https://gestioneselectricas.com/#organization" },
+    "areaServed": [{ "@type": "Country", "name": "Colombia" }]
   }
 ]
 </script>
@@ -538,19 +602,19 @@
       </div>
       <div class="stats">
         <div class="stat reveal">
-          <div class="stat__num"><span class="plus">+</span><span class="stat-count" data-target="100">0</span></div>
+          <div class="stat__num"><span class="plus">+</span><span class="stat-count" data-target="100">100</span></div>
           <div class="stat__label" data-i18n="cifras.1">empresas asesoradas</div>
         </div>
         <div class="stat reveal d1">
-          <div class="stat__num"><span class="stat-count" data-target="345">0</span></div>
+          <div class="stat__num"><span class="stat-count" data-target="345">345</span></div>
           <div class="stat__label" data-i18n="cifras.2">proyectos ejecutados</div>
         </div>
         <div class="stat reveal d2">
-          <div class="stat__num"><span class="stat-count" data-target="100">0</span>%</div>
+          <div class="stat__num"><span class="stat-count" data-target="100">100</span>%</div>
           <div class="stat__label" data-i18n="cifras.3">cumplimiento RETIE y NTC 2050</div>
         </div>
         <div class="stat reveal d3">
-          <div class="stat__num"><span class="stat-count" data-target="3">0</span></div>
+          <div class="stat__num"><span class="stat-count" data-target="3">3</span></div>
           <div class="stat__label" data-i18n="cifras.4">ciudades: Barranquilla, Medellín, Bogotá</div>
         </div>
       </div>
@@ -873,7 +937,6 @@
 <script src="js/i18n.js?v=20260622a" defer></script>
 <script src="js/scene.js?v=20260622a" defer></script>
 <script src="js/sound.js?v=20260622a" defer></script>
-<script src="js/blog-posts.js?v=20260622a" defer></script>
 <script src="js/app.js?v=20260622a" defer></script>
 
 <!-- FourG Chat — widget CRM (org: gestiones-electricas · wc_gestiones_main) -->
