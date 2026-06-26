@@ -11,7 +11,7 @@ window.GE_I18N = {
     "nav.sedes": "Sedes",
     "nav.proyectos": "Proyectos",
     "nav.contacto": "Contacto",
-    "nav.cta": "Cotizar",
+    "nav.cta": "Contáctanos",
     "lang.toggle": "EN",
 
     "hero.kicker": "Ingeniería eléctrica · IA · Tecnología",
@@ -248,7 +248,7 @@ window.GE_I18N = {
     "nav.sedes": "Offices",
     "nav.proyectos": "Projects",
     "nav.contacto": "Contact",
-    "nav.cta": "Get a quote",
+    "nav.cta": "Contact us",
     "lang.toggle": "ES",
 
     "hero.kicker": "Electrical engineering · AI · Technology",
