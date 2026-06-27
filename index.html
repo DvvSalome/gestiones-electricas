@@ -973,7 +973,7 @@
 <script>(function(){
   var SRC="https://crm.fourgsolutions.com/chat/wc_gestiones_main";
   if(window.__fourgChat)return; window.__fourgChat=1;
-  var open=false, frame, btn;
+  var open=false, frame, btn, tip=null;
   function el(t,s){var e=document.createElement(t);for(var k in s)e.style[k]=s[k];return e;}
   btn=el("div",{position:"fixed",right:"20px",bottom:"24px",width:"56px",height:"56px",
     borderRadius:"50%",background:"#C7E52F",cursor:"pointer",zIndex:2147483645,
@@ -993,12 +993,34 @@
   function qp(){try{var p=new URLSearchParams(location.search),o={};["utm_source","utm_medium","utm_campaign","utm_term","utm_content","gclid","fbclid"].forEach(function(k){var v=p.get(k);if(v)o[k]=v;});return o;}catch(e){return {};}}
   var qs="u="+encodeURIComponent((location.href||"").slice(0,512))+"&ref="+encodeURIComponent((document.referrer||"").slice(0,512))+"&utm="+encodeURIComponent(JSON.stringify(qp()));
   frame.title="Chat Gestiones Eléctricas";
+  function hideTip(){ if(!tip)return; tip.style.opacity="0"; tip.style.transform="translateY(10px)"; setTimeout(function(){ if(tip) tip.style.display="none"; }, 300); }
   function toggle(){open=!open;
     if(open && !frame.src) frame.src=SRC+(SRC.indexOf("?")>=0?"&":"?")+qs;
     frame.style.display=open?"block":"none";
-    btn.style.transform=open?"scale(.92)":"scale(1)";}
+    btn.style.transform=open?"scale(.92)":"scale(1)"; if(open)hideTip();}
   btn.onclick=toggle;
   document.body.appendChild(frame); document.body.appendChild(btn);
+  // Mensaje teaser que aparece solo sobre el botón (bilingüe, descartable).
+  var teaserTxt = chatLang === 'en'
+    ? "👋 Hi! Have an electrical project? Tell us and we'll advise you."
+    : "👋 ¡Hola! ¿Tienes un proyecto eléctrico? Cuéntanos y te asesoramos.";
+  var tkey="fourg_teaser_wc_gestiones_main", seen=false;
+  try{seen=localStorage.getItem(tkey)==="1";}catch(e){}
+  if(!seen){
+    tip=el("div",{position:"fixed",right:"20px",bottom:"92px",maxWidth:"250px",background:"#fff",
+      color:"#1f2937",padding:"13px 34px 13px 15px",borderRadius:"16px",boxShadow:"0 8px 30px rgba(0,0,0,.22)",
+      zIndex:2147483644,fontSize:"14px",lineHeight:"1.45",fontFamily:"system-ui,-apple-system,sans-serif",
+      cursor:"pointer",display:"none",opacity:"0",transform:"translateY(10px)",transition:"opacity .3s ease,transform .3s ease"});
+    var tx=el("div",{position:"absolute",top:"6px",right:"9px",width:"18px",height:"18px",lineHeight:"16px",
+      textAlign:"center",borderRadius:"50%",fontSize:"15px",color:"#9ca3af",cursor:"pointer"});
+    tx.innerHTML="&times;";
+    tx.onclick=function(ev){ev.stopPropagation();hideTip();try{localStorage.setItem(tkey,"1");}catch(e){}};
+    var tsp=document.createElement("span"); tsp.textContent=teaserTxt;
+    tip.appendChild(tx); tip.appendChild(tsp);
+    tip.onclick=function(){try{localStorage.setItem(tkey,"1");}catch(e){} if(!open)toggle(); else hideTip();};
+    document.body.appendChild(tip);
+    setTimeout(function(){ if(open)return; tip.style.display="block"; setTimeout(function(){tip.style.opacity="1";tip.style.transform="translateY(0)";},20); }, 3500);
+  }
 })();</script>
 </body>
 </html>
