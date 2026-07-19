@@ -100,21 +100,21 @@ mv js/sound.bak.js js/sound.js
 mv css/styles.bak.css css/styles.css
 
 echo "4. Uploading ZIP to cPanel..."
-curl -H "Authorization: cpanel gestioneselectri:DL6PCYP04WIAFY1T764EA71MNYSW7U8I" \
+curl -H "Authorization: cpanel gestioneselectri:${CPANEL_TOKEN:?exportar CPANEL_TOKEN}" \
   -F "dir=/home/gestioneselectri/public_html" \
   -F "overwrite=1" \
   -F "file-1=@../gestiones-electricas-optimized.zip" \
   "https://gestioneselectricas.com:2083/execute/Fileman/upload_files"
 
 echo "5. Uploading extract.php..."
-curl -H "Authorization: cpanel gestioneselectri:DL6PCYP04WIAFY1T764EA71MNYSW7U8I" \
+curl -H "Authorization: cpanel gestioneselectri:${CPANEL_TOKEN:?exportar CPANEL_TOKEN}" \
   -F "dir=/home/gestioneselectri/public_html" \
   -F "overwrite=1" \
   -F "file-1=@extract.php" \
   "https://gestioneselectricas.com:2083/execute/Fileman/upload_files"
 
 echo "6. Uploading cleanup.php..."
-curl -H "Authorization: cpanel gestioneselectri:DL6PCYP04WIAFY1T764EA71MNYSW7U8I" \
+curl -H "Authorization: cpanel gestioneselectri:${CPANEL_TOKEN:?exportar CPANEL_TOKEN}" \
   -F "dir=/home/gestioneselectri/public_html" \
   -F "overwrite=1" \
   -F "file-1=@cleanup.php" \
