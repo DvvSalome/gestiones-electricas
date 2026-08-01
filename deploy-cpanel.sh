@@ -89,7 +89,15 @@ zip -r ../gestiones-electricas-optimized.zip . \
   -x "*.agents*" \
   -x "*.DS_Store" \
   -x "*.bak.*" \
-  -x "optimize_images.py"
+  -x "*.py" \
+  -x "*.xlsx" \
+  -x "CLAUDE.md" \
+  -x "HANDOFF-*.md" \
+  -x "GEO-AUDIT-REPORT.md" \
+  -x "README-DEPLOY.md" \
+  -x "contenido-reels.md" \
+  -x "automation/*" \
+  -x ".claude/*"
 
 echo "Restoring original assets..."
 mv js/app.bak.js js/app.js
